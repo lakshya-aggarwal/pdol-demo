@@ -2,8 +2,8 @@
 
 ## Environments
 
-- Preview: https://main--xsc-wknd-commerce--hlxsites.hlx.page/
-- Live: https://main--xsc-wknd-commerce--hlxsites.hlx.live/
+- Preview: https://main--pdol-demo--lakshya-aggarwal.hlx.page/
+- Live: https://main--pdol-demo--lakshya-aggarwal.hlx.live/
 
 ## Pre-requisites
 
