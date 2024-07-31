@@ -1,4 +1,4 @@
 mappings:
- - /content/pdol-site/:/blog
+ - /content/pdol-site/:/
  - /content/pdol-site/metadata.json:/metadata.json
  - /content/pdol-site/redirects.json:/redirects.json

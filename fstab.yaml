@@ -17,6 +17,7 @@ folders:
   /products/: /products/default
   /draft/commerce-sc/products/: /draft/commerce-sc/products/default
   /adventures/details/: /adventures/details/default
+  /blogs/details/: /blogs/details/default
   /draft/commerce-sc/adventures/details/: /draft/commerce-sc/adventures/details/default
   /experiments/experiment-adventures-pdp/: /experiments/experiment-adventures-pdp/adventure-pdp-v2
   /draft/commerce-sc/experiments/experiment-adventures-pdp/: /draft/commerce-sc/experiments/experiment-adventures-pdp/adventure-pdp-v2
