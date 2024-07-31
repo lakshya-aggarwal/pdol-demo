@@ -3,9 +3,9 @@
   aspect-ratio: 185 / 230;
   object-fit: contain;
 }
-
+d
 .product-list-page .ds-widgets_actions_header > span:first-child {
-  font-size: var(--heading-font-size-md);
+  font-size: var(--heading-font-size-l);
 }
 
 .product-list-page .ds-widgets_actions_header > span:last-child {
@@ -57,3 +57,85 @@
 .product-list-page .ds-widgets-_actions {
   max-width: 225px;
 }
+.default-content-wrapper #best-sellers{
+  font-weight: 200;
+  text-decoration: none;
+  /*font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Trebuchet MS, Lucida Grande, sans-serif;*/
+}
+main .default-content-wrapper p{
+  font-weight: lighter;
+  font-size: small;
+  margin-top: 20px;
+}
+main .default-content-wrapper {
+  padding-right: 40rem;
+  padding-bottom: 5rem;
+  margin-left:auto;
+}
+.ds-widgets.py-2{
+  padding-bottom: 2rem;
+}
+.ds-widgets .flex .hidden{
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  height:500px;
+  margin-right: 10px;
+}
+.ds-widgets .flex .hidden > .h-full{
+  height: 10%;
+}
+.ds-widgets .flex > .pt-16{
+ padding-top:0;
+}
+.ds-widgets .flex .hidden > .ds-plp-facets {
+  overflow: auto;
+}
+main .section.top-divider{
+  padding-bottom: 0;
+}
+main .product-list-page-container > .fragment-wrapper .form-container{
+  padding-bottom: 0;
+}
+main .product-list-page-container > .fragment-wrapper > .section{
+  padding-top: 0;
+}
+main .product-list-page-container > .fragment-wrapper{
+  height: 300px;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-image{
+  height: 300px;
+}
+.form-wrapper .form .form-block-wrapper > .form-image img{
+  max-width: 100%;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info{
+  width:80%;
+}
+main .section.top-divider .default-content-wrapper{
+  padding-right: 200px;
+}
+main{
+  position: relative;
+}
+
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper{
+  position: absolute;
+  bottom: 0;
+  right:0;
+  left:0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+
+
+/*all the media queries*/
+@media (width>=200px){
+  .section > div{
+    max-width: 100%;
+  }
+}
+
+
+
