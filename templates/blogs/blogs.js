@@ -1,133 +1,107 @@
-/* eslint-disable */
-import { buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
-import { getMetadata } from '../../scripts/aem.js';
+import {
+  makeLinksRelative,
+  readBlockConfig,
+  updateExternalLinks,
+  fetchGraphQL,
+  fetchPlaceholders,
+} from '../../scripts/scripts.js';
 
-/* Hardcoded endpoint */
-const AEM_HOST = 'https://publish-p24020-e1129912.adobeaemcloud.com';
-
-const ADVENTURE_DETAILS = {
-  activity: 'Activity',
-  adventureType: 'Adventure Type',
-  tripLength: 'Trip Length',
-  groupSize: 'Group Size',
-  difficulty: 'Difficulty',
-  price: 'Price',
-};
-
-const categories = {
-  overview: 'Overview',
-  itinerary: 'Itinerary',
-  gearList: 'What to Bring',
-};
-
-const adventureText = 'Share this adventure';
-const imgPath = '/icons/share.png';
-
-const createElement = (tagName, className) => {
-  const el = document.createElement(tagName);
-  el.className = className;
-  return el;
-};
-
-const createImg = () => {
-  const img = document.createElement('img');
-  img.src = imgPath;
-  img.alt = 'Share Icon';
-  img.width = 24;
-  img.height = 24;
-  return img;
-};
-
-export default function decorate(block) {
-  const slug = getMetadata('slug');
-  if (!slug) return;
-
-  const queryURL = `aem-demo-assets/adventure-by-slug-v2;slug=${slug}`;
-
-  const sideBar = document.createElement('div');
-  sideBar.classList.add('side-bar');
-
-  import('https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js')
-    .then((m) => new m.default({ serviceURL: AEM_HOST }))
-    .then((client) => client.runPersistedQuery(queryURL))
-    .then((dataObj) => {
-      const adventure = dataObj.data.adventureList.items[0];
-
-      // Add data to tabs
-      Object.keys(categories).forEach((category) => {
-        const body = document.createElement('div');
-        const tab = block.querySelector(`div[data-tab-title$="${categories[category]}"]>div`);
-        const picture = tab.querySelector('picture');
-
-        [...tab.children].forEach((item) => {
-          const regex = '{(.*?)}';
-
-          if (item.textContent.match(regex)) {
-            body.innerHTML = adventure[item.textContent.match(regex)[1]].html;
+async function getArticles(limit, placeholders) {
+  try {
+    const resp = await fetchGraphQL(`query GetNewsArticles($tour: TourCode, $franchise: String, $franchises: [String!], $playerId: ID, $playerIds: [ID!], $limit: Int, $offset: Int, $tournamentNum: String) {
+      newsArticles(tour: $tour, franchise: $franchise, franchises: $franchises, playerId: $playerId, playerIds: $playerIds, limit: $limit, offset: $offset, tournamentNum: $tournamentNum) {
+          articles {
+              id
+              franchise
+              franchiseDisplayName
+              articleImage
+              headline
+              publishDate
+              teaserContent
+              teaserHeadline
+              updateDate
+              url
           }
-          item.remove();
-        });
-        if (picture) body.append(picture);
-        tab.append(body);
-      });
-
-      // Fill side bar
-      Object.keys(ADVENTURE_DETAILS).forEach((detail) => {
-        const dt = document.createElement('dt');
-        const dd = document.createElement('dd');
-        const dl = document.createElement('dl');
-
-        dt.textContent = ADVENTURE_DETAILS[detail];
-
-        if (detail === 'price') {
-          const unformattedPrice = adventure[detail];
-          const formattedString = unformattedPrice.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          });
-          const roundedNumber = Math.round(parseFloat(formattedString.replace(/[$,]/g, '')));
-          const finalFormattedString = roundedNumber.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-          });
-          dd.textContent = `${finalFormattedString} USD`;
-        } else {
-          dd.textContent = adventure[detail];
-        }
-        dl.append(dt);
-        dl.append(dd);
-        shareElDesktop.insertAdjacentElement('beforebegin', dl);
-      });
+      }
+  }`, {
+      tournamentNum: placeholders.tournamentId,
+      limit,
     });
-
-  // Append 'Share this adventure'
-  const shareElDesktop = createElement('p', 'share-adventure desktop');
-  shareElDesktop.appendChild(createImg());
-  shareElDesktop.insertAdjacentText('beforeend', adventureText);
-
-  const shareElMobile = createElement('p', 'share-adventure mobile');
-  shareElMobile.appendChild(createImg());
-  shareElMobile.insertAdjacentText('beforeend', adventureText);
-
-  const tabsBlock = document.querySelector('.section.tabs-container');
-  sideBar.append(shareElDesktop);
-  tabsBlock.prepend(shareElMobile);
-
-  // Append side bar and PDP redirect link button
-  tabsBlock.prepend(sideBar);
-
-  const pdpLinkButton = block.querySelector('.tabs-container .button-container a');
-  pdpLinkButton.classList.replace('button', 'button-primary');
-
-  const defaultContentWrapper = pdpLinkButton.closest('.default-content-wrapper');
-  if (defaultContentWrapper) {
-    defaultContentWrapper.classList.replace('default-content-wrapper', 'redirect-btn-container');
-    tabsBlock.append(defaultContentWrapper);
+    if (resp.ok) {
+      const json = await resp.json();
+      if (json.data && json.data.newsArticles && json.data.newsArticles.articles) {
+        const articles = json.data.newsArticles.articles.map((article) => {
+          const articleUrl = new URL(article.url);
+          articleUrl.searchParams.delete('webview');
+          return {
+            url: articleUrl.toString(),
+            type: 'article',
+            image: article.articleImage,
+            title: article.teaserHeadline,
+            date: article.updateDate,
+            franchise: article.franchise,
+            franchiseDisplayName: article.franchiseDisplayName,
+          };
+        });
+        return articles;
+      }
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn('Could not load news', err);
   }
 
-  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
-    buildAdventureBreadcrumbs();
+  // return an empty array if fail, so that local news can still be displayed
+  return [];
+}
+
+export default async function decorate(block) {
+  const config = readBlockConfig(block);
+  const limit = config.limit || 5;
+  block.innerHTML = '';
+
+  const title = document.createElement('h3');
+  title.textContent = 'Related to this story';
+  block.append(title);
+
+  // set placeholder content
+  const ul = document.createElement('ul');
+  block.append(ul);
+  for (let i = 0; i < limit; i += 1) {
+    const placeholder = document.createElement('li');
+    placeholder.className = 'related-stories-placeholder';
+    placeholder.innerHTML = `<a><div class="related-stories-story-image"></div>
+      <div class="related-stories-story-body"></div></a>`;
+    ul.append(placeholder);
   }
+
+  const observer = new IntersectionObserver(async (entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      observer.disconnect();
+      const placeholders = await fetchPlaceholders();
+      const articles = await getArticles(limit, placeholders);
+      articles.forEach((story, i) => {
+        const li = document.createElement('li');
+        li.classList.add('related-stories-story');
+        const a = document.createElement('a');
+        a.href = story.url;
+        a.innerHTML = `
+            <div class="related-stories-story-image">
+              <picture><img src="${story.image}" alt="${story.title}" /></picture>
+            </div>
+            <div class="related-stories-story-body">
+              ${story.franchise ? `<p>${story.franchiseDisplayName}</p>` : ''}
+              <a href="${story.url}">${story.title}</a>
+            </div>
+          `;
+        li.append(a);
+        [...ul.children][i].replaceWith(li);
+      });
+
+      makeLinksRelative(block);
+      updateExternalLinks(block);
+    }
+  }, { threshold: 0 });
+
+  observer.observe(block);
 }

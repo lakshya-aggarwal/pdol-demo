@@ -3,7 +3,7 @@ import { buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
 import { getMetadata } from '../../scripts/aem.js';
 
 /* Hardcoded endpoint */
-const AEM_HOST = 'https://publish-p24020-e1129912.adobeaemcloud.com';
+const AEM_HOST = 'https://publish-p64656-e692852.adobeaemcloud.com';
 
 const ADVENTURE_DETAILS = {
   activity: 'Activity',
