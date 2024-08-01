@@ -1,5 +1,5 @@
 .carousel-container {
-  max-width: var(--med-grid-layout);
+  /*max-width: var(--med-grid-layout);*/
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -44,7 +44,7 @@
 }
 
 .carousel .carousel-slide-image {
-  width: 65%;
+  /*width: 65%;*/
 }
 
 @media (width <= 768px) {
