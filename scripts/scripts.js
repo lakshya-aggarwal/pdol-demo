@@ -180,6 +180,7 @@ export function decorateMain(main) {
  */
 const TEMPLATE_LIST = [
   'adventures',
+    'blogs',
 ];
 
 /**
@@ -478,6 +479,167 @@ export function buildAdventureBreadcrumbs() {
   firstSection.prepend(breadcrumbContainer);
   firstSection.classList.add('breadcrumb-container');
 }
+
+
+// --------------------- CUSTOM FUNCTIONS  --------------------
+
+/**
+ * Turns absolute links within the domain into relative links.
+ * @param {Element} main The container element
+ */
+export function makeLinksRelative(main) {
+  // eslint-disable-next-line no-use-before-define
+  const hosts = ['hlx.page', 'hlx.live', ...PRODUCTION_DOMAINS];
+  main.querySelectorAll('a').forEach((a) => {
+    if (a.href) {
+      try {
+        const url = new URL(a.href);
+        const hostMatch = hosts.some((host) => url.hostname.includes(host));
+        const hostPathMatch = hosts.find((host) => `${url.hostname}${url.pathname}`.includes(host));
+        if (hostMatch) {
+          a.href = `${url.pathname.replace('.html', '')}${url.search}${url.hash}`;
+        } else if (hostPathMatch) {
+          const resultHref = `${url.hostname}${url.pathname}${url.search}${url.hash}`.replace(hostPathMatch, '').replace('.html', '');
+          a.href = resultHref.startsWith('/') ? resultHref : `/${resultHref}`;
+        }
+      } catch (e) {
+        // something went wrong
+        // eslint-disable-next-line no-console
+        console.log(e);
+      }
+    }
+  });
+}
+
+/**
+ * Extracts the config from a block.
+ * @param {Element} block The block element
+ * @returns {object} The block config
+ */
+export function readBlockConfig(block) {
+  const config = {};
+  block.querySelectorAll(':scope>div').forEach((row) => {
+    if (row.children) {
+      const cols = [...row.children];
+      if (cols[1]) {
+        const col = cols[1];
+        const name = toClassName(cols[0].textContent);
+        let value = '';
+        if (col.querySelector('a')) {
+          const as = [...col.querySelectorAll('a')];
+          if (as.length === 1) {
+            value = as[0].href;
+          } else {
+            value = as.map((a) => a.href);
+          }
+        } else if (col.querySelector('img')) {
+          const imgs = [...col.querySelectorAll('img')];
+          if (imgs.length === 1) {
+            value = imgs[0].src;
+          } else {
+            value = imgs.map((img) => img.src);
+          }
+        } else if (col.querySelector('p')) {
+          const ps = [...col.querySelectorAll('p')];
+          if (ps.length === 1) {
+            value = ps[0].textContent;
+          } else {
+            value = ps.map((p) => p.textContent);
+          }
+        } else value = row.children[1].textContent;
+        config[name] = value;
+      }
+    }
+  });
+  return config;
+}
+
+/**
+ * Sets external target and rel for links in a container element.
+ * @param {Element} container The container element
+ */
+export function updateExternalLinks(container) {
+  const REFERERS = [
+    window.location.origin,
+    'http://pubads.g.doubleclick.net',
+    'https://googleads.g.doubleclick.net',
+    'https://adclick.g.doubleclick.net',
+    'https://www.pgatour.com',
+    'https://www.pgatourfanshop.com',
+    'https://www.grantthornton.com',
+    'http://www.morganstanley.com',
+    'http://www.optum.com',
+    'https://www.rolex.com',
+  ];
+  container.querySelectorAll('a[href]').forEach((a) => {
+    try {
+      const { origin, pathname, hash } = new URL(a.href, window.location.href);
+      const targetHash = hash && hash.startsWith('#_');
+      const isPDF = pathname.split('.').pop() === 'pdf';
+      if ((origin && origin !== window.location.origin && !targetHash) || isPDF) {
+        a.setAttribute('target', '_blank');
+        if (!REFERERS.includes(origin)) a.setAttribute('rel', 'noopener');
+      } else if (targetHash) {
+        a.setAttribute('target', hash.replace('#', ''));
+        a.href = a.href.replace(hash, '');
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn(`Invalid link in ${container}: ${a.href}`);
+    }
+  });
+}
+
+/**
+ * Gets placeholders object
+ * @param {string} prefix
+ */
+export async function fetchPlaceholders(prefix = 'default') {
+  window.placeholders = window.placeholders || {};
+  const loaded = window.placeholders[`${prefix}-loaded`];
+  if (!loaded) {
+    window.placeholders[`${prefix}-loaded`] = new Promise((resolve, reject) => {
+      try {
+        fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
+            .then((resp) => resp.json())
+            .then((json) => {
+              const placeholders = {};
+              json.data.forEach((placeholder) => {
+                placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
+              });
+              window.placeholders[prefix] = placeholders;
+              resolve();
+            });
+      } catch (e) {
+        // error loading placeholders
+        window.placeholders[prefix] = {};
+        reject();
+      }
+    });
+  }
+  await window.placeholders[`${prefix}-loaded`];
+  return (window.placeholders[prefix]);
+}
+
+export async function fetchGraphQL(query, variables) {
+  const placeholders = await fetchPlaceholders();
+  if (placeholders.graphqlApiEndpoint && placeholders.graphqlApiKey) {
+    return fetch(placeholders.graphqlApiEndpoint, {
+      method: 'POST',
+      body: JSON.stringify({
+        variables,
+        query,
+      }),
+      headers: {
+        'x-api-key': placeholders.graphqlApiKey,
+        'x-pgat-platform': 'web',
+      },
+    });
+  }
+  throw new Error('fail');
+}
+// --------------------- CUSTOM FUNCTIONS  --------------------
+
 
 async function loadPage() {
   await window.hlx.plugins.load('eager', pluginContext);
