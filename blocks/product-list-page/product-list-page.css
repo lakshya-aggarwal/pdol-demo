@@ -85,7 +85,7 @@ main .default-content-wrapper {
   height: 10%;
 }
 .ds-widgets .flex > .pt-16{
- padding-top:0;
+  padding-top:0;
 }
 .ds-widgets .flex .hidden > .ds-plp-facets {
   overflow: auto;
@@ -107,9 +107,36 @@ main .product-list-page-container > .fragment-wrapper .form-container .form-wrap
 }
 .form-wrapper .form .form-block-wrapper > .form-image img{
   max-width: 100%;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 100%);
 }
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info{
   width:80%;
+  padding-left: 200px;
+  background: linear-gradient(to right, lavenderblush, mintcream);
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .submit-wrapper button:hover{
+  background-color: #3d3d3d;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .submit-wrapper button{
+  width:200px;
+  height:100%;
+  background-color: #008cba;
+  margin:0;
+  padding:0;
+  border-radius: 7px;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .field-wrapper.email-wrapper input{
+  border-radius: 10px;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info h3{
+  font-size: x-large;
+  font-weight: normal;
+  padding-bottom: 0px;
+}
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info p{
+  font-size: small;
+  font-weight: lighter;
+  padding-bottom: 30px;
 }
 main .section.top-divider .default-content-wrapper{
   padding-right: 200px;
@@ -136,6 +163,3 @@ main .product-list-page-container > .fragment-wrapper .form-container .form-wrap
     max-width: 100%;
   }
 }
-
-
-

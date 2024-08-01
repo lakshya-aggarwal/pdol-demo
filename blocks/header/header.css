@@ -5,100 +5,56 @@ header .header-nav-wrapper {
   position: fixed;
   top: 40px;
   padding-bottom: 2em;
+  justify-content: center;
   height:130px;
-  justify-items: center;
+  margin-right: 30px;
   border-bottom: 1px solid var(--color-neutral-400);
   background-color: #32496c;
 }
 
-@media (width < 768px) {
-  header .header-nav-wrapper {
-    padding: 0;
-  }
-}
-
-
 header nav {
   box-sizing: border-box;
   background-color: #2e4060;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
-  align-items: center;
   margin-left: 0;
   margin-right: 0;
+  padding-right: 15%;
+  padding-left: 5%;
   width: 100%;
-  height: 90%;
-  padding: 0 16px;
+  height: 95%;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
   font-family: var(--type-base-font-family);
 }
 
-@media (width >= 600px) {
-  header nav {
-    padding: 0 32px;
-  }
-}
-
-@media (width >= 900px) {
-  header nav {
-    display: flex;
-    justify-content: center;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
-}
-
-@media (width < 900px) {
-  header .header-nav-wrapper nav {
-    height: unset;
-  }
-}
-
 header .header-nav-wrapper .nav-brand {
-  margin-right: 1.5em;
-  margin-left: 100px;
+  padding: 0.5vw; /* Space inside each item */
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  flex: 1 1 5vw;
 }
-
-header .header-nav-wrapper > nav{
+header .header-nav-wrapper .section.nav-brand .default-content-wrapper {
   display: flex;
+  justify-content: flex-end;
+  padding-right: 1vw;
 }
-
-@media (width <= 900px) {
-  header nav a:any-link {
-    font-size: var(--body-font-size-xs);
-  }
-
+header nav .nav-tools {
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  flex: 1 1 5vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  gap: 3vw;
+  height: 100%;
 }
-
-
-
-
-
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
+header nav .nav-tools .search-wrapper {
+  flex: 1 1 10vw;
+  width:25vw;
+  padding-right:1vw;
 }
-
-
-
-
-
-
-
-
-
-@media (width < 768px) {
-  header nav .nav-sections ul > li {
-    margin: 15px 0;
-  } 
+header nav .nav-tools .minicart-wrapper{
+  width: 2vw;
 }
-
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
@@ -114,12 +70,6 @@ header nav .nav-sections ul > li > a:hover {
   background-color: var(--color-neutral-200);
 }
 
-@media (width >= 900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
-  }
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
@@ -166,8 +116,8 @@ header nav .nav-sections ul > li > a:hover {
 
   }
   header nav > .section .default-content-wrapper > ul > li {
-    margin-left: 10px;
     color:white;
+    margin-right: 0.5vw;
   }
   header nav > .section .default-content-wrapper >ul > li > a:hover{
     color: #b59000;
@@ -177,6 +127,9 @@ header nav .nav-sections ul > li > a:hover {
     flex: 0 1 auto;
     position: relative;
     font-weight: 500;
+  }
+  header nav .nav-sections .default-content-wrapper > ul > li{
+    color:black;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -216,7 +169,7 @@ header nav .nav-sections ul > li > a:hover {
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
-}
+
 
 /* tools */
 header nav .nav-panel {
@@ -235,26 +188,14 @@ header nav .nav-panel--show {
   display: block;
 }
 
-header nav .nav-tools {
-  grid-area: tools;
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
-  height: 100%;
-}
-
-header nav .nav-tools .minicart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 header nav .nav-tools > button,
 header nav .nav-tools .minicart-wrapper > button {
   color: var(--color-brand-300);
   background: transparent;
   padding: 5px 10px;
-  margin-left: 1em;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
   height: 100%;
   border: unset;
   cursor: pointer;
@@ -313,13 +254,20 @@ header nav .nav-tools .default-content-wrapper .button-container a:hover{
 header .nav-search-panel {
   padding: 1rem;
 }
-
+header .search-wrapper .nav-search-input{
+  width: 30%;
+  margin-left: 20vw;
+  margin-top: 2vw;
+  border-radius: 3px;
+}
 header .search-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+header .search-wrapper button{
+  height: 2.5vw;
+}
 header .nav-search-panel input {
   width: 100%;
   padding: 10px;
@@ -327,7 +275,6 @@ header .nav-search-panel input {
   font: var(--type-headline-2-default-font);
   font-size: var(--body-font-size-xs);
   letter-spacing: var(--type-headline-2-default-letter-spacing);
-  border: 1px solid currentcolor;
   appearance: none;
 }
 
@@ -357,44 +304,32 @@ header .nav-search-panel input {
 
 
 /* If viewport height is below max, set max height to 90% of viewport */
-@media (height < 768px) {
-  .cart-mini-cart:not(:has(.cart-empty-cart)) {
-    max-height: calc(100vh - var(--nav-height));
-  }
-}
 
-@media (width > 768px) {
-  header nav .nav-search-panel,
-  header nav .minicart-panel {
-    min-width: 398px;
-    width: auto;
-    left: unset;
-    right: 0;
-    top: 40px;
-  }
-}
+
 header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
   background: url('../../icons/bucket-solid.svg');
-  width: 1.7em;
-  height: 1.8em;
-  margin-right: 0;
+  width: 2px;
+  height: 1vw;
+  margin-right: 0.1vw;
+  padding-top: 12px;
   padding-right: 0;
-
 }
-@media (width >= 1024px) {
-  header nav .minicart-wrapper,
-  header nav .search-wrapper {
-    position: relative;
-  }
 
-  header .nav-search-input {
-    left: unset;
-    right: 20px;
-  }
-
-  header nav .minicart-panel,
-  header nav .nav-search-panel {
-    left: unset;
-    right: 0;
+@media (max-width: 1023px){
+  header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
+    margin-top:37px;
   }
 }
+@media (max-width: 800px){
+  header .header-nav-wrapper nav{
+    padding-right:6%;
+  }
+}
+
+@media (max-width: 700px) {
+  header nav > :nth-child(5) > .default-content-wrapper {
+    padding-left: 10px;
+  }
+}
+
+
