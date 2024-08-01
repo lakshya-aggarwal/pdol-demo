@@ -494,7 +494,7 @@ main .section.highlight {
 }
 
 main .section.default-width {
-  max-width: var(--med-grid-layout);
+  max-width: var(--large-grid-layout);
   margin: 0 auto;
 }
 
