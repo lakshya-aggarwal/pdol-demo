@@ -11,13 +11,14 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
- 
+ @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 
  :root,
  .dropin-design.dropin-design {
   /* Font Family  */ 
-  --heading-font-family: 'Source Serif Pro', 'Source-Serif-Pro-Fallback', sans-serif;
-  --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
+  --heading-font-family: "Lato", sans-serif;
+  --type-base-font-family: "Lato", sans-serif;
 
   /* body sizes */
   --body-font-size-xxs: 10px;
@@ -195,6 +196,8 @@ body {
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
 }
 
 body.appear {
@@ -213,6 +216,11 @@ header {
 main {
   margin-top: 105px;
 } 
+
+ul {
+  margin: 0;
+  padding: 0;
+}
 
 @media (width < 768px) {
   main {
@@ -376,19 +384,13 @@ a.button-primary:active {
 button.button-secondary,
 a.button-secondary {
   display: block;
-  background-color: var(--color-black-100);
-  font-size: var(--body-font-size-md);
-  font-weight: 600;
-  color: var(--color-neutral-50);
-  padding: 8px 24px;
-  width: fit-content;
-  height: auto;
-  letter-spacing: 0.08em;
-  box-sizing: border-box;
-  text-decoration: none;
-  text-align: center;
-  margin: 15px 0;
-  text-transform: uppercase;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px;
 }
 
 .button-tertiary {
@@ -693,4 +695,10 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 /* Hide minicart SKU */
 .dropin-design .dropin-cart-item__sku {
   display: none;
+}
+
+
+/*new styles*/
+ul li {
+  list-style: none;
 }

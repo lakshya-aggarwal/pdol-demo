@@ -58,14 +58,13 @@ d
   max-width: 225px;
 }
 .default-content-wrapper #best-sellers{
-  font-weight: 200;
   text-decoration: none;
   /*font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Trebuchet MS, Lucida Grande, sans-serif;*/
 }
 main .default-content-wrapper p{
-  font-weight: lighter;
-  font-size: small;
+  font-size: 14px;
   margin-top: 20px;
+  letter-spacing: normal;
 }
 main .default-content-wrapper {
   padding-right: 40rem;
@@ -78,8 +77,8 @@ main .default-content-wrapper {
 .ds-widgets .flex .hidden{
   background-color: #f0f0f0;
   border-radius: 5px;
-  height:500px;
   margin-right: 10px;
+  padding: 20px;
 }
 .ds-widgets .flex .hidden > .h-full{
   height: 10%;
@@ -135,7 +134,6 @@ main .product-list-page-container > .fragment-wrapper .form-container .form-wrap
 }
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info p{
   font-size: small;
-  font-weight: lighter;
   padding-bottom: 30px;
 }
 main .section.top-divider .default-content-wrapper{
@@ -154,6 +152,10 @@ main .product-list-page-container > .fragment-wrapper .form-container .form-wrap
   margin-right: 0;
 }
 
+label.ds-sdk-labelled-input__label {
+  font-weight: normal;
+}
+
 
 
 
@@ -162,4 +164,12 @@ main .product-list-page-container > .fragment-wrapper .form-container .form-wrap
   .section > div{
     max-width: 100%;
   }
+}
+
+
+h2#best-sellers {
+  font-size: 26px;
+  letter-spacing: normal;
+  color: #4d4d4d;
+  font-weight: bold;
 }

@@ -33,25 +33,29 @@ footer .footer .wrapper > .section > .default-content-wrapper ul li picture img{
   height:1vw;
   width: 1vw;
 }
-footer .footer .wrapper > .section > .default-content-wrapper p{
-  padding-bottom: 1.2vw;
-  font-size: 1.2vw;
 
+footer .footer .wrapper > .section > .default-content-wrapper p {
+  padding-bottom: 1.2vw;
+  font-size: 18px;
+  letter-spacing: 0;
+  font-weight: 500;
 }
-footer .footer .wrapper > .section > .default-content-wrapper ul li a{
-  font-size: 0.8vw;
-  font-weight: lighter;
-  color:whitesmoke;
+
+footer .footer .wrapper > .section > .default-content-wrapper ul li a {
+  font-size: 16px;
+  font-weight: normal;
+  color: whitesmoke;
+  letter-spacing: normal;
 }
 footer .footer .wrapper > .section > .default-content-wrapper ul li a:hover{
   color: #b59000;
   text-decoration: none;
 }
 footer .footer .wrapper > .section > .default-content-wrapper ul li{
+  font-size: 16px;
+  font-weight: normal;
   color: whitesmoke;
-  font-size: 0.8vw;
-  font-weight: lighter;
-
+  letter-spacing: normal;
 }
 footer .footer .wrapper > .section > .default-content-wrapper ul li::marker{
   content: none;
@@ -61,4 +65,21 @@ footer .footer .wrapper > .section > .default-content-wrapper picture img{
   width: 9vw;
 }
 
+h3#sign-up-for-pet-updates {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 2rem;
+  text-transform: capitalize;
+  color: #4d4d4d;
+  letter-spacing: normal;
+}
 
+.form.email-subscription.block .form-info p {
+  font-size: 14px;
+  letter-spacing: normal;
+  color: #4d4d4d;
+}
+
+.footer .default-content-wrapper ul {
+  margin-bottom: 20px;
+}

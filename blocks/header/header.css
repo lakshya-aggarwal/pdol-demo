@@ -14,29 +14,30 @@ header .header-nav-wrapper {
 
 header nav {
   box-sizing: border-box;
-  background-color: #2e4060;
+  /* background-color: #2e4060; */
   margin-left: 0;
   margin-right: 0;
-  padding-right: 15%;
-  padding-left: 5%;
+  /* padding-right: 15%; */
+  /* padding-left: 5%; */
   width: 100%;
   height: 95%;
   display: flex;
-  gap: 2vw;
+  /* gap: 2vw; */
   justify-content: center;
   align-items: center;
   font-family: var(--type-base-font-family);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header .header-nav-wrapper .nav-brand {
-  padding: 0.5vw; /* Space inside each item */
-  box-sizing: border-box; /* Include padding in width/height calculations */
-  flex: 1 1 5vw;
+  margin-right: 24px;
 }
+
 header .header-nav-wrapper .section.nav-brand .default-content-wrapper {
-  display: flex;
+  /* display: flex;
   justify-content: flex-end;
-  padding-right: 1vw;
+  padding-right: 1vw; */
 }
 header nav .nav-tools {
   box-sizing: border-box; /* Include padding in width/height calculations */
@@ -333,3 +334,8 @@ header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
 }
 
 
+@media (min-width: 700px) {
+  .nav-hamburger {
+    display: none;
+  }
+}
