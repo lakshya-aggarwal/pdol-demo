@@ -238,6 +238,7 @@ header nav .nav-tools button.nav-search-button {
   height: 38px;
   width: 700px;
   border-radius: 5px;
+  text-align: left;
 }
 
 header nav .nav-tools button.nav-search-button:hover,
