@@ -185,3 +185,14 @@ h2#best-sellers {
   font-size: 14px !important;
   color: #737373;
 }
+
+
+.ds-widgets_actions_header.flex.justify-between.items-center.mb-md span {
+  font-size: 20px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.ds-widgets_actions_header.flex.justify-between.items-center.mb-md span.text-primary.text-sm {
+  font-size: 14px;
+}

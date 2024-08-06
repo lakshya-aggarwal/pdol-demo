@@ -701,3 +701,16 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 ul li {
   list-style: none;
 }
+
+svg.h-md.w-md.fill-gray-500 {
+  fill: #006ec2;
+}
+
+.ds-sdk-input__fieldset__show-more.flex.items-center.text-gray-700.cursor-pointer {
+  margin-top: 20px;
+}
+
+button.ml-sm.font-light {
+  font-weight: normal;
+  color: #006ec2;
+}
