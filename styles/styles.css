@@ -190,7 +190,7 @@ html, body {
 
 body {
   font: var(--type-body-1-default-font);
-  letter-spacing: var(--type-body-1-default-letter-spacing);
+  letter-spacing: 0;
   margin: 0;
   color: var(--color-black-100);
   background-color: var(--background-color);
@@ -230,32 +230,26 @@ ul {
 
 h1 {
   font: var(--type-display-1-font);
-  letter-spacing: var(--type-display-1-letter-spacing);
 }
 
 h2 {
   font: var(--type-display-2-font);
-  letter-spacing: var(--type-display-2-letter-spacing);
 }
 
 h3 {
   font: var(--type-display-3-font);
-  letter-spacing: var(--type-display-3-letter-spacing);
 }
 
 h4 {
   font: var(--type-headline-1-font);
-  letter-spacing: var(--type-headline-1-letter-spacing);
 }
 
 h5 {
   font: var(--type-headline-2-strong-font);
-  letter-spacing: var(--type-headline-2-strong-letter-spacing);
 }
 
 h6 {
   font: var(--type-headline-2-default-font);
-  letter-spacing: var(--type-headline-2-default-letter-spacing);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -297,7 +291,6 @@ code,
 pre,
 samp {
   font: var(--type-body-2-default-font);
-  letter-spacing: var(--type-body-2-default-letter-spacing);
   font-family: var(--type-fixed-font-family);
 }
 
@@ -322,7 +315,6 @@ main pre {
 a:any-link {
   color: var(--color-black-100);
   font: var(--type-body-1-strong-font);
-  letter-spacing: var(--type-body-1-strong-letter-spacing);
   text-decoration: none;
 }
 

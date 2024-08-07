@@ -17,7 +17,7 @@ footer .footer .wrapper{
   gap: 2vw;
 }
 footer .footer .wrapper > .section:nth-child(2), footer .footer .wrapper > .section:nth-child(5), footer .footer .wrapper > .section:nth-child(7), footer .footer .wrapper > .section:nth-child(9), footer .footer .wrapper > .section:nth-child(12), footer .footer .wrapper > .section:nth-child(13) {
-  flex: 1 1 5vw;
+  /* flex: 1 1 5vw; */
   width: auto;
   height: auto;
 }
@@ -35,11 +35,22 @@ footer .footer .wrapper > .section > .default-content-wrapper ul li picture img{
 }
 
 footer .footer .wrapper > .section > .default-content-wrapper p {
-  padding-bottom: 1.2vw;
   font-size: 18px;
   letter-spacing: 0;
   font-weight: 500;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
 }
+
+.footer .default-content-wrapper ul {
+  margin: 0;
+}
+
+/* .footer .default-content-wrapper ul li:first-child{
+  margin-top: 20px;
+} */
+
 
 footer .footer .wrapper > .section > .default-content-wrapper ul li a {
   font-size: 16px;
@@ -80,6 +91,16 @@ h3#sign-up-for-pet-updates {
   color: #4d4d4d;
 }
 
-.footer .default-content-wrapper ul {
-  margin-bottom: 20px;
+
+footer .footer .wrapper > .section > .default-content-wrapper ul li a {
+  font-size: 14px;
+}
+
+.footer.block .default-content-wrapper p {
+  margin-bottom: 20px !important;
+}
+
+.footer.block  .default-content-wrapper p+ul li {
+  font-size: 14px !important;
+  /* margin-bottom: 20px; */
 }
