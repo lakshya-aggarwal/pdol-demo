@@ -3,13 +3,13 @@ header .header-nav-wrapper {
   width: 100%;
   z-index: 20;
   position: fixed;
-  top: 40px;
-  padding-bottom: 2em;
+  /* padding-bottom: 2em; */
   justify-content: center;
-  height:130px;
+  height: 72px;
   margin-right: 30px;
   border-bottom: 1px solid var(--color-neutral-400);
   background-color: #32496c;
+  padding: 20px;
 }
 
 header nav {
@@ -339,4 +339,8 @@ header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
   .nav-hamburger {
     display: none;
   }
+}
+
+.header-topnav {
+  display: none;
 }

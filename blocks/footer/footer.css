@@ -8,13 +8,16 @@ footer {
 }
 
 footer .footer {
-  height: 50vh;
-  padding: 2vw;
+  /* height: 50vh; */
+  padding: 100px 0;
 }
-footer .footer .wrapper{
+
+footer .footer .wrapper {
   display: flex;
-  margin: 3vw 0 0 8vw;
+  margin: 0 auto;
   gap: 2vw;
+  width: 100%;
+  max-width: 1200px;
 }
 footer .footer .wrapper > .section:nth-child(2), footer .footer .wrapper > .section:nth-child(5), footer .footer .wrapper > .section:nth-child(7), footer .footer .wrapper > .section:nth-child(9), footer .footer .wrapper > .section:nth-child(12), footer .footer .wrapper > .section:nth-child(13) {
   /* flex: 1 1 5vw; */
