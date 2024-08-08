@@ -707,7 +707,7 @@ button.ml-sm.font-light {
   color: #006ec2;
 }
 
-h2#customer-favorites {
+h2#customer-favorites, h2#latest-blogs, h2#shop-by-brand, h2#shop-by-pet {
   color: #4d4d4d;
   font-weight: bold;
   letter-spacing: normal;
@@ -761,3 +761,31 @@ h2#customer-favorites {
 }
 
 
+.button-container a[title="Shop All Best Sellers"] {
+  color: #4d4d4d;
+  font-weight: bold;
+  letter-spacing: normal;
+  font-size: 22px;
+  line-height: 1.625rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.cards-wrapper {
+  display: flex;
+}
+
+.cards.block {
+  display: flex;
+}
+
+.cards.block div {
+  flex: 1 1;
+  padding: 0 10px 0 0;
+}
+
+.cards.block img {
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+
+}
