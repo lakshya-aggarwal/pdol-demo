@@ -22,6 +22,26 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  /* aspect-ratio: 4 / 3; */
   object-fit: cover;
 }
+
+.cards-wrapper .cards.block ul {
+  display: flex;
+  /* flex-wrap: wrap; */
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.cards.block img {
+  min-width: 100px;
+}
+
+@media (width <= 768px) {
+  .cards-wrapper .cards.block ul {
+    flex-direction: column;
+
+  }
+}
+
+

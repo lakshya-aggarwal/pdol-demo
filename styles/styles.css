@@ -468,9 +468,9 @@ main .section {
 }
 
 @media (width <= 768px) {
-  main .section {
+  /* main .section {
     padding: 1.5rem 15px
-  }
+  } */
 }
 
 @media (width >=1024px) {
@@ -735,6 +735,11 @@ h2#customer-favorites, h2#latest-blogs, h2#shop-by-brand, h2#shop-by-pet {
   border: 0;
 }
 
+p.button-container a {
+  color: #006ec2;
+
+}
+
 
 .tabs .tabs-list button {
   border-radius: 0;
@@ -788,4 +793,29 @@ h2#customer-favorites, h2#latest-blogs, h2#shop-by-brand, h2#shop-by-pet {
 border-top-right-radius: 5px;
 border-top-left-radius: 5px;
 
+}
+
+.cards > ul > li:has(img) {
+  border: 1px solid #dadada;
+  background-color: var(--background-color);
+  border: none;
+}
+
+.cards > ul {
+  display: flex;
+} 
+
+h2#latest-blogs+p.button-container a {
+  display: inline-block;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px;
+  float: right;
+  position: relative;
+  top: -50px;
+  text-transform: uppercase;
 }
