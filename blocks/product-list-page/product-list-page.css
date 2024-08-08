@@ -196,3 +196,7 @@ h2#best-sellers {
 .ds-widgets_actions_header.flex.justify-between.items-center.mb-md span.text-primary.text-sm {
   font-size: 14px;
 }
+
+.ds-sdk-product-list__grid.mt-md.grid.grid-cols-1.gap-y-8.gap-x-2xl.sm\:grid-cols-2.md\:grid-cols-3.xl\:gap-x-8 {
+  grid-template-columns: repeat(3, minmax(0px, 1fr)) !important;
+}
