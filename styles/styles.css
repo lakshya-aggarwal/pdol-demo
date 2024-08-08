@@ -706,3 +706,58 @@ button.ml-sm.font-light {
   font-weight: normal;
   color: #006ec2;
 }
+
+h2#customer-favorites {
+  color: #4d4d4d;
+  font-weight: bold;
+  letter-spacing: normal;
+  font-size: 22px;
+  line-height: 1.625rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.tabs-list {
+  display: flex;
+  justify-content: center;
+}
+
+
+.tabs .tabs-list button.tabs-tab {
+  text-transform: uppercase;
+  color: #000;
+  /* border-bottom: 3px solid #000; */
+  padding-bottom: 15px;
+  color: #006ec2;
+  border-bottom: 3px solid #fff;
+  font-size: 14px;
+  padding: 10px;
+  border: 0;
+}
+
+
+.tabs .tabs-list button {
+  border-radius: 0;
+}
+
+.tabs .tabs-panel {
+  margin-top: -1px;
+  padding: 24px;
+  border: 0;
+  overflow: auto;
+}
+
+
+.tabs-list {
+  border-bottom: 1px solid #dadada;
+}
+
+.tabs .tabs-list button[aria-selected='true'] {
+  border-bottom: 1px solid var(--background-color);
+  background-color: var(--background-color);
+  cursor: initial;
+  border-bottom: 3px solid #000 !important;
+  color: #000;
+}
+
+
