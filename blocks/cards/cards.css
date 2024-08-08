@@ -6,14 +6,19 @@
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
   grid-gap: 24px;
 }
-
+main :nth-child(10) .cards-wrapper .cards.block ul{
+  grid-template-columns: repeat(7,1fr);
+}
+main :nth-child(12) .cards-wrapper .cards.block ul{
+  grid-template-columns: repeat(5,1fr);
+}
 .cards > ul > li {
   border: 1px solid #dadada;
   background-color: var(--background-color);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 0;
 }
 
 .cards .cards-card-image {
@@ -22,7 +27,7 @@
 
 .cards > ul > li img {
   width: 100%;
-  /* aspect-ratio: 4 / 3; */
+  aspect-ratio: 4 / 4;
   object-fit: cover;
 }
 

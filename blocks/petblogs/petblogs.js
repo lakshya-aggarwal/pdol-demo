@@ -14,25 +14,29 @@ import {
 async function loadFragment() {
   {
     const myHeaders = new Headers();
-    myHeaders.append('Cookie', 'affinity="16fcc1e086efed46"');
 
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'manual',
     };
 
-    const resp = await fetch('https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json/pdol-site/blogs-by-slug;slug=dog-food', requestOptions)
+    const resp = await fetch('https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json/pdol-site/blogs-all', requestOptions)
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.petBlogsList);
+        const main = document.createElement('main');
+        main.innerHTML = result.data.petBlogsList.items[0].title;
+        decorateMain(main);
+        loadBlocks(main);
+        return main;
+      })
       .catch((error) => console.error(error));
-    if (resp.ok) {
-      const main = document.createElement('main');
-      main.innerHTML = await resp.text();
-      decorateMain(main);
-      await loadBlocks(main);
-      return main;
-    }
+    /* if (resp) {
+      const fragment = document.createElement('div');
+      fragment.innerHTML = resp.data;
+      return fragment;
+    } */
   }
   return null;
 }
