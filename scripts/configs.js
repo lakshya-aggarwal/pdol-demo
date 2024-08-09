@@ -25,7 +25,8 @@ export const calcEnvironment = () => {
 
 function buildConfigURL(environment) {
   const env = environment || calcEnvironment();
-  const configURL = new URL(`${window.location.origin}/configs.json`);
+  const configURL = new URL('/content/dam/pdol-site/configs.json');
+  console.log(configURL);
   configURL.searchParams.set('sheet', env);
   return configURL;
 }
@@ -37,6 +38,7 @@ const getConfigForEnvironment = async (environment) => {
     configJSON = await fetch(buildConfigURL(env)).then((res) => res.text());
     window.sessionStorage.setItem(`config:${env}`, configJSON);
   }
+  console.log(configJSON);
   return configJSON;
 };
 
