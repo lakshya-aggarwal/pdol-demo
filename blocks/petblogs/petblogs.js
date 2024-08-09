@@ -11,7 +11,7 @@ import {
  * @param {string} path The path to the fragment
  * @returns {HTMLElement} The root element of the fragment
  */
-async function loadFragment() {
+export async function loadFragment() {
   {
     const myHeaders = new Headers();
 
@@ -19,36 +19,39 @@ async function loadFragment() {
       method: 'GET',
       headers: myHeaders,
     };
-
+    let final_main = document.createElement('main');
     const resp = await fetch('https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json/pdol-site/blogs-all', requestOptions)
       .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        console.log(result.data.petBlogsList);
-        const main = document.createElement('main');
-        main.innerHTML = result.data.petBlogsList.items[0].title;
-        decorateMain(main);
-        loadBlocks(main);
-        return main;
+      .then(async (result) => {
+          console.log(result);
+          console.log(result.data.petBlogsList);
+          const main = document.createElement('main');
+          main.innerHTML = result.data.petBlogsList.items[0].title;
+
+          decorateMain(main);
+          await loadBlocks(main);
+          console.log(main);
+          final_main=main;
+          return main;
       })
       .catch((error) => console.error(error));
-      console.log(resp.data);
     /* if (resp) {
       const fragment = document.createElement('div');
       fragment.innerHTML = resp.data;
       return fragment;
     } */
+      return final_main;
   }
-  return null;
+  // console.log("yash");
 }
 
 export default async function decorate(block) {
-  const fragment = await loadFragment();
+    const fragment = await loadFragment();
+    console.log(fragment.textContent);
   if (fragment) {
-    const fragmentSection = fragment.querySelector(':scope .section');
-    if (fragmentSection) {
-      block.closest('.section').classList.add(...fragmentSection.classList);
-      block.closest('.fragment').replaceWith(...fragment.childNodes);
-    }
+    const fragmentSection = document.querySelector('main .section.petblogs-container .petblogs-wrapper .petblogs');
+    const title_element = document.createElement('h4');
+    title_element.textContent = fragment.textContent;
+    fragmentSection.appendChild(title_element);
   }
 }

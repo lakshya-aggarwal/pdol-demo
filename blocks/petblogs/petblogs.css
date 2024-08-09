@@ -1,5 +1,5 @@
 /* suppress nested section padding */
-.fragment-wrapper > .section {
+.petblogs-wrapper .petblogs.block{
     padding-left: 0;
     padding-right: 0;
 }

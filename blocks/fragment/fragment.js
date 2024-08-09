@@ -35,6 +35,7 @@ export async function loadFragment(path) {
 
       decorateMain(main);
       await loadBlocks(main);
+      console.log(main);
       return main;
     }
   }
@@ -45,8 +46,10 @@ export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
   const fragment = await loadFragment(path);
+  console.log(block);
   if (fragment) {
     const fragmentSection = fragment.querySelector(':scope .section');
+    console.log(fragmentSection);
     if (fragmentSection) {
       block.closest('.section').classList.add(...fragmentSection.classList);
       block.closest('.fragment').replaceWith(...fragment.childNodes);

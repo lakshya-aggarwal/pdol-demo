@@ -227,10 +227,10 @@ export default async function decorate(block) {
   /** Search */
   const search = document.createRange().createContextualFragment(`
   <div class="search-wrapper">
-    <button type="button" class="button nav-search-button">Search</button>
+<!--    <button type="button" class="button nav-search-button">Search</button>-->
     <div class="nav-search-input nav-search-panel nav-panel hidden">
       <form id="search_mini_form" action="/search" method="GET">
-        <input id="search" type="search" name="q" placeholder="Search" />
+        <input id="search" type="search" name="q" placeholder="Product's Live Search" />
         <div id="search_autocomplete" class="search-autocomplete"></div>
       </form>
     </div>
@@ -240,7 +240,7 @@ export default async function decorate(block) {
   navTools.append(search);
 
   const searchPanel = navTools.querySelector('.nav-search-panel');
-  const searchButton = navTools.querySelector('.nav-search-button');
+  // const searchButton = navTools.querySelector('.nav-search-button');
   const searchInput = searchPanel.querySelector('input');
 
   function toggleSearch(state) {
@@ -249,7 +249,7 @@ export default async function decorate(block) {
     if (show) searchInput.focus();
   }
 
-  navTools.querySelector('.nav-search-button').addEventListener('click', async () => {
+  navTools.querySelector('.nav-search-input').addEventListener('click', async () => {
     await import('./searchbar.js');
     document.querySelector('header .nav-search-input').classList.toggle('hidden');
     toggleSearch();
@@ -261,9 +261,9 @@ export default async function decorate(block) {
       toggleMiniCart(false);
     }
 
-    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
-      toggleSearch(false);
-    }
+    // if (!searchPanel.contains(e.target) && !searchInput.contains(e.target)) {
+    //   toggleSearch(false);
+    // }
   });
 
   // hamburger for mobile

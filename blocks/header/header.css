@@ -8,10 +8,12 @@ header .header-nav-wrapper {
   height: 72px;
   margin-right: 30px;
   border-bottom: 1px solid var(--color-neutral-400);
-  background-color: #32496c;
+  background-color: #2e4060;
   padding: 20px;
 }
-
+*, :after, :before {
+     box-sizing: initial;
+  }
 header nav {
   box-sizing: border-box;
   /* background-color: #2e4060; */
@@ -45,13 +47,16 @@ header nav .nav-tools {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row-reverse;
-  gap: 3vw;
+  gap: 1em;
   height: 100%;
 }
 header nav .nav-tools .search-wrapper {
   flex: 1 1 10vw;
   width:25vw;
-  padding-right:1vw;
+  padding-right:1em;
+  padding-left: 1em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 header nav .nav-tools .minicart-wrapper{
   width: 2vw;
@@ -174,20 +179,12 @@ header nav .nav-sections ul > li > a:hover {
 
 /* tools */
 header nav .nav-panel {
-  z-index: 100;
-  position: absolute;
   box-shadow: var(--shape-shadow-2);
   background: var(--background-color);
-  left: 0;
-  top: 60px;
   width: 100%;
-  display: none;
   box-sizing: border-box;
 }
 
-header nav .nav-panel--show {
-  display: block;
-}
 
 
 header nav .nav-tools > button,
@@ -200,6 +197,9 @@ header nav .nav-tools .minicart-wrapper > button {
   height: 100%;
   border: unset;
   cursor: pointer;
+}
+header nav .nav-tools .minicart-wrapper > button.button.nav-cart-button{
+  padding-top:0;
 }
 
 header nav .nav-tools button.nav-cart-button {
@@ -252,15 +252,10 @@ header nav .nav-tools .default-content-wrapper .button-container a{
 header nav .nav-tools .default-content-wrapper .button-container a:hover{
   color: #b59000;
 }
-
-header .nav-search-panel {
-  padding: 1rem;
-}
 header .search-wrapper .nav-search-input{
-  width: 30%;
-  margin-left: 20vw;
-  margin-top: 2vw;
-  border-radius: 3px;
+  border-radius: 0.35em;
+  height: 2.5em;
+  align-items: center;
 }
 header .search-wrapper {
   display: flex;
@@ -272,12 +267,20 @@ header .search-wrapper button{
 }
 header .nav-search-panel input {
   width: 100%;
-  padding: 10px;
+  height:100%;
+  border: 0;
+  padding: 0.5em 0.2em 0.2em 0.4em;
   box-sizing: border-box;
   font: var(--type-headline-2-default-font);
-  font-size: var(--body-font-size-xs);
+  font-size: medium;
+  font-weight: normal;
   letter-spacing: var(--type-headline-2-default-letter-spacing);
   appearance: none;
+  border-radius: 0.2em;
+  color: #808080;
+}
+header .nav-search-panel .search-autocomplete .Grid-sc-nsk1nd{
+  width: 100%;
 }
 
 /* Mini Cart  */
@@ -307,7 +310,9 @@ header .nav-search-panel input {
 
 /* If viewport height is below max, set max height to 90% of viewport */
 
-
+.nav-search-input.nav-search-panel.nav-panel.hidden{
+  display: revert;
+}
 header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
   background: url('../../icons/bucket-solid.svg');
   width: 2px;
