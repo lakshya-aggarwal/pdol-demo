@@ -32,6 +32,7 @@ async function loadFragment() {
         return main;
       })
       .catch((error) => console.error(error));
+      console.log(resp.data);
     /* if (resp) {
       const fragment = document.createElement('div');
       fragment.innerHTML = resp.data;
