@@ -32,7 +32,7 @@ main :nth-child(12) .cards-wrapper .cards.block ul{
 }
 
 .cards-wrapper .cards.block ul {
-  display: flex;
+  /*display: flex;*/
   /* flex-wrap: wrap; */
   max-width: 1200px;
   overflow: hidden;
@@ -40,6 +40,8 @@ main :nth-child(12) .cards-wrapper .cards.block ul{
 
 .cards.block img {
   min-width: 100px;
+  border: 1px solid #b0b0b0;
+  box-shadow: 2px 2px 2px #b0b0b0;
 }
 
 @media (width <= 768px) {
