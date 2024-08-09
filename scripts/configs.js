@@ -25,8 +25,7 @@ export const calcEnvironment = () => {
 
 function buildConfigURL(environment) {
   const env = environment || calcEnvironment();
-  const configURL = new URL('/content/dam/pdol-site/configs.json');
-  console.log(configURL);
+  const configURL = new URL(`${window.location.origin}/configs.json`);
   configURL.searchParams.set('sheet', env);
   return configURL;
 }
@@ -38,65 +37,6 @@ const getConfigForEnvironment = async (environment) => {
     configJSON = await fetch(buildConfigURL(env)).then((res) => res.text());
     window.sessionStorage.setItem(`config:${env}`, configJSON);
   }
-  //  if (!configJSON) {
-  configJSON = {
-    total: 12,
-    offset: 0,
-    limit: 12,
-    data: [
-      {
-        key: 'commerce-endpoint',
-        value: 'https://catalog-service-sandbox.adobe.io/graphql',
-      },
-      {
-        key: 'commerce-environment-id',
-        value: 'a96ede16-88d0-45ec-b897-3a6bdca25324',
-      },
-      {
-        key: 'commerce-website-code',
-        value: 'wknd',
-      },
-      {
-        key: 'commerce-store-view-code',
-        value: 'wknd',
-      },
-      {
-        key: 'commerce-store-code',
-        value: 'wknd_store',
-      },
-      {
-        key: 'commerce-customer-group',
-        value: 'b6589fc6ab0dc82cf12099d1c2d40ab994e8410c',
-      },
-      {
-        key: 'commerce-x-api-key',
-        value: 'storefront-widgets',
-      },
-      {
-        key: 'commerce-core-endpoint',
-        value: 'https://wknd-commerce.adobedemo.com/graphql',
-      },
-      {
-        key: 'commerce-root-category-id',
-        value: '3',
-      },
-      {
-        key: 'aem-host',
-        value: 'https://publish-p64656-e692852.adobeaemcloud.com/',
-      },
-      {
-        key: 'aem-graphql-endpoint',
-        value: 'aem-demo-assets',
-      },
-      {
-        key: 'adyen-client-key',
-        value: 'test_DQGCHYCTAVA63LJNHCE5TQPU3AEIGRZ2',
-      },
-    ],
-    ':type': 'sheet',
-  };
-  //  }
-  console.log(configJSON);
   return configJSON;
 };
 
@@ -110,6 +50,6 @@ const getConfigForEnvironment = async (environment) => {
 export const getConfigValue = async (configParam, environment) => {
   const env = environment || calcEnvironment();
   const configJSON = await getConfigForEnvironment(env);
-  const configElements = configJSON.data;
+  const configElements = JSON.parse(configJSON).data;
   return configElements.find((c) => c.key === configParam)?.value;
 };
