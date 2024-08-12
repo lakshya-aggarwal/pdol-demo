@@ -13,12 +13,12 @@
 }
 
 
-.section.default-width.top-divider.fragment-container.form-container {
+/* .section.default-width.top-divider.fragment-container.form-container {
   width: 100vw !important;
   padding: 0 !important;
   margin: 0 !important;
   max-width: none;
-}
+} */
 
 .fragment-wrapper {
   max-width: none;

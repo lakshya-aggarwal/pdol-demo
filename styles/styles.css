@@ -214,8 +214,8 @@ header {
 
 /* Need to adjust main because of positioning of the fixed header */
 main {
-  margin-top: 105px;
-} 
+  margin-top: 30px;
+}
 
 ul {
   margin: 0;
@@ -773,7 +773,7 @@ p.button-container a {
   line-height: 1.625rem;
   text-transform: capitalize;
   margin-bottom: 20px;
-  isplay: inline-block;
+  display: inline-block;
   border-radius: .5rem;
   line-height: 1rem;
   background-color: #006ec2;
@@ -833,4 +833,22 @@ h2#latest-blogs+p.button-container a {
   position: relative;
   top: -50px;
   text-transform: uppercase;
+}
+/* 
+.section:first-child picture {
+  width: 100vw !important;
+  max-width: none !important;
+  display: flex;
+}
+
+.main .section:first-child {
+  width: 100vw !important;
+  max-width: none !important;
+  padding: 0 !important;
+} */
+
+
+main .section:first-child {
+  max-width: 1200px;
+  margin: 0 auto;
 }

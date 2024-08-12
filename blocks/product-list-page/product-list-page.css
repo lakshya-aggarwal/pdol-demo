@@ -67,9 +67,9 @@ main .default-content-wrapper p{
   letter-spacing: normal;
 }
 main .default-content-wrapper {
-  padding-right: 40rem;
+  /* padding-right: 40rem;*/
   padding-bottom: 5rem;
-  margin-left:auto;
+  margin-left:auto; 
 }
 .ds-widgets.py-2{
   padding-bottom: 2rem;
