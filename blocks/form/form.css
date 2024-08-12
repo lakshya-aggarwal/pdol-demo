@@ -199,12 +199,12 @@
 @media (width <= 768px) {
 
   .form-block-wrapper .form-image {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 100%;
-    height: 100%;
+    height: 100%; */
   }
 
   .form-block-wrapper .form-info {
@@ -242,10 +242,49 @@
   object-fit: cover;
 }
 
-@media (width <= 768px) {
+@media (width <= 1024px) {
   .form-block-wrapper .form-image img {
     max-width: 100%;
   }
+
+  .form-block-wrapper button[type="submit"] {
+    /* height: 100%; */
+    padding: 10px 20px;
+}
+
+.form-block-wrapper {
+  position: relative;
+  min-height: 375px;
+  display: flex;
+  flex-direction: column;
+  flex-direction: column-reverse;
+
+}
+
+.form-block-wrapper .form-info {
+  width: auto;
+}
+
+.form-image {
+  width: 100%;
+  order: 1;
+}
+
+
+.email-sub-form {
+  display: flex;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  flex-direction: column;
+}
+
+.email-sub-form input[type="email"] {
+  height: 60px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+
 }
 
 .form.email-subscription .form-info p:first-of-type {

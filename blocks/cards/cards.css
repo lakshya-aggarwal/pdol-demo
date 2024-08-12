@@ -44,11 +44,40 @@ main :nth-child(13) .cards-wrapper .cards.block ul{
   border-radius: 10px;
 }
 
-@media (width <= 768px) {
+@media (width <= 1024px) {
+
   .cards-wrapper .cards.block ul {
     flex-direction: column;
     max-width: 100%;
+    grid-template-columns: auto !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+.cards.block {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+main .section:nth-child(13) {
+}
+
+main :nth-child(13) .cards-wrapper .cards.block ul {
+  display: grid;
+grid-template-columns: repeat(2, 1fr) !important;
+}
+
+main :nth-child(13) .cards-wrapper  .cards > ul > li:has(img) {
+  width: 100%;;
+}
+
+main :nth-child(13) .cards.block div {
+  flex: 1 1;
+  padding: 0 0px 0 0;
+}
+
 }
 
 

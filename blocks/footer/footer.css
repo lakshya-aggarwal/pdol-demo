@@ -88,7 +88,10 @@ h3#sign-up-for-pet-updates {
   text-transform: capitalize;
   color: #4d4d4d;
   letter-spacing: normal;
+  line-height: 130%;
 }
+
+
 
 .form.email-subscription.block .form-info p {
   font-size: 14px;
@@ -109,3 +112,31 @@ footer .footer .wrapper > .section > .default-content-wrapper ul li a {
   font-size: 14px !important;
   /* margin-bottom: 20px; */
 }
+
+
+@media (width <= 1024px) {
+ footer {
+  height: auto;
+ }
+
+
+ footer .footer .wrapper {
+  flex-direction: column;
+ }
+
+
+footer .footer .wrapper > .section > .default-content-wrapper picture img {
+  height: auto;
+  width: 100%;
+  max-width: 250px;
+}
+
+.footer.block .section {
+  margin-top: 20px;
+}
+
+footer .footer {
+  padding: 20px 20px;
+}
+}
+

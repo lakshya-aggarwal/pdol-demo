@@ -353,3 +353,17 @@ header nav > .nav-tools > .minicart-wrapper > .nav-cart-button{
 nav#nav p, nav#nav a {
   color: #fff;
 }
+
+@media (width <= 1024px) {
+ header .header-nav-wrapper {
+  height: auto;
+ }
+
+ header nav .nav-tools .search-wrapper {
+  padding: 0;
+ }
+
+ nav#nav .section:nth-child(5) {
+  display: none;
+}
+}

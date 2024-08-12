@@ -23,12 +23,12 @@
 .petblogs > ul > li {
     border: 1px solid #dadada;
     background-color: var(--background-color);
-    padding: 20px;
     border-radius: 10px;
 }
 
 .petblogs .cards-card-body {
     margin: 0;
+    padding: 20px;
 }
 
 .petblogs .cards-card-image {
@@ -52,14 +52,22 @@
     min-width: 100px;
     /* border: 1px solid #b0b0b0; */
     /* box-shadow: 2px 2px 2px #b0b0b0; */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+
 }
 
-@media (width <= 768px) {
+@media (width <= 1024px) {
     .petblogs-wrapper .petblogs.block ul {
         flex-direction: column;
 
     }
+
+
+main :nth-child(13) .cards-wrapper .cards.block ul {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 
-
+}
