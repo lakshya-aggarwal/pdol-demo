@@ -1,16 +1,15 @@
 footer {
-  padding: 2vw 2vw 2vw 2vw;
+  padding: 40px 50px;
   background-color: #2e4060;
   font: var(--type-body-2-default-font);
   font-size: medium;
   color: whitesmoke;
   font-weight: normal;
-  height:500px;
 }
 
 footer .footer {
    /*height: 30em;*/
-  padding: 5em 0;
+  padding: 40px 0 0 0 ;
 }
 
 footer .footer .wrapper {
@@ -20,7 +19,9 @@ footer .footer .wrapper {
   gap: 2vw;
   width: 100%;
   max-width: 1200px;
+  flex-wrap: wrap;
 }
+
 footer .footer .wrapper > .section:nth-child(2), footer .footer .wrapper > .section:nth-child(5), footer .footer .wrapper > .section:nth-child(7), footer .footer .wrapper > .section:nth-child(9), footer .footer .wrapper > .section:nth-child(12), footer .footer .wrapper > .section:nth-child(13) {
   /* flex: 1 1 5vw; */
   width: auto;
@@ -76,9 +77,9 @@ footer .footer .wrapper > .section > .default-content-wrapper ul li{
 footer .footer .wrapper > .section > .default-content-wrapper ul li::marker{
   content: none;
 }
-footer .footer .wrapper > .section > .default-content-wrapper picture img{
-  height: 14vw;
-  width: 14.5vw;
+footer .footer .wrapper > .section > .default-content-wrapper picture img {
+  height: 220px;
+  width: auto;
 }
 
 h3#sign-up-for-pet-updates {
@@ -140,3 +141,19 @@ footer .footer {
 }
 }
 
+.footer.block .wrapper .section:nth-child(13) img {
+  width: 100%;
+  height: auto;
+}
+
+.footer.block .wrapper .section:nth-child(13) {
+flex-basis: 100%;
+}
+
+.footer.block .wrapper .section:nth-child(7) {
+  max-width: 220px;
+}
+
+.footer.block .wrapper .section:nth-child(7) ul li {
+  margin-bottom: 15px;
+}

@@ -321,12 +321,12 @@ a:any-link {
   font: var(--type-body-1-strong-font);
   text-decoration: none;
 }
-
+/* 
 a:hover {
   text-decoration: solid underline var(--color-brand-700);
   text-underline-offset: 6px;
   color: var(--color-brand-700);
-}
+} */
 
 a:focus-visible {
   outline: solid var(--shape-border-width-4) var(--color-neutral-400);
@@ -781,7 +781,6 @@ p.button-container a {
   line-height: 1.625rem;
   text-transform: capitalize;
   margin-bottom: 20px;
-  isplay: inline-block;
   border-radius: .5rem;
   line-height: 1rem;
   background-color: #006ec2;
@@ -797,6 +796,19 @@ p.button-container a {
   text-align: center;
   /* display: flex; */
   display: inline-block;
+  text-align: center;
+  align-items: center;
+  left: 0;
+  RIGHT: 0;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-self: center;
 }
 
 .cards-wrapper {
@@ -873,4 +885,10 @@ nav#nav {
 .nav-hamburger {
   display: none;
 }
+}
+
+a.button:hover {
+  border: 0;
+  background: #00477e;
+  border: .125rem solid  #00477e;
 }
