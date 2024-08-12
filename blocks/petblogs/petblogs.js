@@ -65,7 +65,6 @@ export async function loadFragment() {
     } */
     return content_array;
   }
-  // console.log("yash");
 }
 
 export default async function decorate(block) {
