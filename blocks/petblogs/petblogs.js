@@ -87,5 +87,5 @@ export default async function decorate(block) {
   //     ul_element.appendChild(list_element);
   //   })
   //   console.log(petblogSection);
-  }
+
 }
