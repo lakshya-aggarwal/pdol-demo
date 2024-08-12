@@ -3,6 +3,7 @@ import {
 } from '../../scripts/scripts.js';
 
 import {
+  getMetadata,
   loadBlocks,
 } from '../../scripts/aem.js';
 
@@ -13,32 +14,28 @@ import {
  */
 async function loadFragment() {
   {
-    const myHeaders = new Headers();
+    /* Hardcoded endpoint */
+    const AEM_HOST = 'https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json';
+    const queryURL = '/pdol-site/blogs-by-slug';
 
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const graphql = JSON.stringify({
+      query: 'query ($slug: String!) {\n  petBlogsList(filter: {slug: {_expressions: [{value: $slug}]}}) {\n    items {\n      _path\n      title\n      content {\n        html\n      }\n      slug\n    }\n  }\n}\n',
+      variables: { slug: 'dog-food' },
+    });
     const requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: myHeaders,
+      body: graphql,
     };
 
-    const resp = await fetch('https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json/pdol-site/blogs-by-slug;slug=dog-food', requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        console.log(result.data.petBlogsList);
-        const main = document.createElement('main');
-        main.innerHTML = result.data.petBlogsList.items[0].title;
-        decorateMain(main);
-        loadBlocks(main);
-        return main;
-      })
+    fetch(AEM_HOST + queryURL, requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
       .catch((error) => console.error(error));
-    /* if (resp) {
-      const fragment = document.createElement('div');
-      fragment.innerHTML = resp.data;
-      return fragment;
-    } */
   }
-  return null;
 }
 
 export default async function decorate(block) {
