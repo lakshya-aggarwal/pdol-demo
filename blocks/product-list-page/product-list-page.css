@@ -66,8 +66,10 @@ main .default-content-wrapper p{
   margin-top: 20px;
   letter-spacing: normal;
 }
+main :first-child img {
+  width: 156em;
+}
 main .default-content-wrapper {
-  padding-right: 40rem;
   padding-bottom: 5rem;
   margin-left:auto;
 }

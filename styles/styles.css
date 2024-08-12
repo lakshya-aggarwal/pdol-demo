@@ -214,8 +214,12 @@ header {
 
 /* Need to adjust main because of positioning of the fixed header */
 main {
-  margin-top: 105px;
-} 
+  margin-top: 30px;
+}
+main :first-child .default-content-wrapper{
+    margin: inherit;
+    max-width: max-content;
+}
 
 ul {
   margin: 0;
@@ -464,7 +468,7 @@ main img {
 
 /* sections */
 main .section {
-  padding: 2rem 15px
+  padding: 2rem 3px
 }
 
 @media (width <= 768px) {
