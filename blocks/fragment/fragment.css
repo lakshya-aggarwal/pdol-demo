@@ -11,3 +11,35 @@
 .fragment-wrapper > .section:last-of-type {
   padding-bottom: 0;
 }
+
+
+.section.default-width.top-divider.fragment-container.form-container {
+  width: 100vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none;
+}
+
+.fragment-wrapper {
+  max-width: none;
+  width: 100vw;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  margin-bottom: -40px !important;
+  margin-top: 30px !important;
+}
+
+.section > div.form-wrapper {
+  max-width: none;
+  width: 100%;
+}
+
+.form-block-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  background: #f5f5f5;
+}

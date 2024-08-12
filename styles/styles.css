@@ -381,7 +381,7 @@ a.button-secondary {
   border: .125rem solid #006ec2;
   color: #fff;
   font-size: 16px;
-  padding: 14px;
+  padding: 0 25px;
 }
 
 .button-tertiary {
@@ -505,7 +505,6 @@ main .section.bottom-divider {
 main .section.top-divider {
   padding: 4rem 2rem 2rem;
   margin-top: 2rem;
-  border-top:  1px solid var(--color-neutral-300);
 }
 
 main .section.section-title .default-content-wrapper:first-of-type p {
@@ -774,6 +773,22 @@ p.button-container a {
   line-height: 1.625rem;
   text-transform: capitalize;
   margin-bottom: 20px;
+  isplay: inline-block;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px;
+  float: none;
+  position: relative;
+  top: -50px;
+  text-transform: uppercase;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  /* display: flex; */
+  display: inline-block;
 }
 
 .cards-wrapper {

@@ -40,15 +40,15 @@ main :nth-child(12) .cards-wrapper .cards.block ul{
 
 .cards.block img {
   min-width: 100px;
-  border: 1px solid #b0b0b0;
-  box-shadow: 2px 2px 2px #b0b0b0;
+  border: 1px solid #dadada;
+  border-radius: 10px;
 }
 
 @media (width <= 768px) {
   .cards-wrapper .cards.block ul {
     flex-direction: column;
-
-  }
+    max-width: 100%;
+}
 }
 
 
