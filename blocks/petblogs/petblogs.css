@@ -11,3 +11,53 @@
 .fragment-wrapper > .section:last-of-type {
     padding-bottom: 0;
 }
+.petblogs > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+    grid-gap: 24px;
+}
+
+.petblogs > ul > li {
+    border: 1px solid #dadada;
+    background-color: var(--background-color);
+}
+
+.petblogs .cards-card-body {
+    margin: 0;
+}
+
+.petblogs .cards-card-image {
+    line-height: 0;
+}
+
+.petblogs > ul > li img {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+}
+
+.petblogs-wrapper .petblogs.block ul {
+    /*display: flex;*/
+    /* flex-wrap: wrap; */
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+.petblogs.block img {
+    min-width: 100px;
+    border: 1px solid #b0b0b0;
+    box-shadow: 2px 2px 2px #b0b0b0;
+}
+
+@media (width <= 768px) {
+    .petblogs-wrapper .petblogs.block ul {
+        flex-direction: column;
+
+    }
+}
+
+
+
