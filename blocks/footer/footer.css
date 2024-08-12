@@ -1,19 +1,21 @@
 footer {
   padding: 2vw 2vw 2vw 2vw;
-  background-color: #32496c;
+  background-color: #2e4060;
   font: var(--type-body-2-default-font);
   font-size: medium;
   color: whitesmoke;
   font-weight: normal;
+  height:500px;
 }
 
 footer .footer {
-  /* height: 50vh; */
-  padding: 100px 0;
+   /*height: 30em;*/
+  padding: 5em 0;
 }
 
 footer .footer .wrapper {
   display: flex;
+  position: relative;
   margin: 0 auto;
   gap: 2vw;
   width: 100%;
@@ -75,8 +77,8 @@ footer .footer .wrapper > .section > .default-content-wrapper ul li::marker{
   content: none;
 }
 footer .footer .wrapper > .section > .default-content-wrapper picture img{
-  height: 9vw;
-  width: 9vw;
+  height: 14vw;
+  width: 14.5vw;
 }
 
 h3#sign-up-for-pet-updates {
