@@ -164,7 +164,9 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
-
+ navBrand.querySelector('.default-content-wrapper picture img').addEventListener('click',()=>{
+   window.location.href='https://main--pdol-demo--lakshya-aggarwal.hlx.live/';
+ });
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -230,7 +232,7 @@ export default async function decorate(block) {
 <!--    <button type="button" class="button nav-search-button">Search</button>-->
     <div class="nav-search-input nav-search-panel nav-panel hidden">
       <form id="search_mini_form" action="/search" method="GET">
-        <input id="search" type="search" name="q" placeholder="Product's Live Search" />
+        <input id="search" type="search" name="q" placeholder="Search" />
         <div id="search_autocomplete" class="search-autocomplete"></div>
       </form>
     </div>
@@ -265,7 +267,6 @@ export default async function decorate(block) {
     //   toggleSearch(false);
     // }
   });
-
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -285,5 +286,6 @@ export default async function decorate(block) {
   block.append(navWrapper);
 
   addAnimation();
-  setActiveTab();
+
+
 }
