@@ -224,14 +224,25 @@ h2#best-sellers {
 }
 
 .product-list-page .ds-sdk-filter-button-desktop button, .product-list-page .ds-sdk-sort-dropdown button {
-  padding: 10px 10px;
-  max-width: 160px;
+  padding: 10px 6px;
+  max-width: 156px;
 }
 
 .form-wrapper {
   position: relative;
   left: -20px;
 }
+
+main .section.top-divider {
+  padding-bottom: 0;
+  padding-right: 20px;
+}
+
+.section.default-width.top-divider.product-list-page-container.enrichment-container.fragment-container.form-container {
+  position: relative;
+  left: 0;
+  width: 100%;
 }
 
 
+}
