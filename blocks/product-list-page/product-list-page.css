@@ -246,3 +246,9 @@ main .section.top-divider {
 
 
 }
+
+
+.section.default-width.top-divider.product-list-page-container.enrichment-container.fragment-container.form-container p.ds-sdk-product-price--configurable.mt-xs.text-sm.font-medium.text-gray-900 {
+  font-size: 24px !important;
+  color: #8b32c2 !important;
+}

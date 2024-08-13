@@ -179,8 +179,8 @@ header nav .nav-sections ul > li > a:hover {
 
 /* tools */
 header nav .nav-panel {
-  box-shadow: var(--shape-shadow-2);
-  background: var(--background-color);
+  /* box-shadow: var(--shape-shadow-2); */
+  /* background: var(--background-color); */
   width: 100%;
   box-sizing: border-box;
 }
@@ -243,7 +243,7 @@ header nav .nav-tools button.nav-search-button {
 
 header nav .nav-tools button.nav-search-button:hover,
 header nav .nav-tools button.nav-cart-button:hover {
-  background-color: var(--color-neutral-200);
+  /* background-color: var(--color-neutral-200); */
   cursor: pointer;
 }
 header nav .nav-tools .default-content-wrapper .button-container a{
@@ -367,3 +367,56 @@ nav#nav p, nav#nav a {
   display: none;
 }
 }
+
+
+nav#nav .section .default-content-wrapper p {
+  margin-right: 20px;
+}
+
+
+.dropin-card.dropin-card--secondary.cart-empty-cart__wrapper {
+  display: flex;
+   box-shadow: var(--shape-shadow-2); 
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+}
+
+.cart-empty-cart__heading {
+  font-size: 16px !important;
+  color: #4d4d4d;
+}
+
+.cart-empty-cart__actions {
+  display: block;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 25px;
+  text-transform: none;
+}
+
+.dropin-design .dropin-button--primary, .dropin-design .dropin-iconButton--primary, .dropin-design .dropin-button--primary:hover, .dropin-design .dropin-iconButton--primary:hover, .dropin-design .dropin-button--primary:hover:active, .dropin-design .dropin-iconButton--primary:focus, .dropin-design .dropin-button--primary:focus, .dropin-design .dropin-button--primary:focus:hover {
+  display: block;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 25px;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0;
+  padding: 20px;
+}
+
+.cart-empty-cart__icon svg {
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 auto;
+} 
