@@ -42,10 +42,11 @@
 }
 
 .petblogs-wrapper .petblogs.block ul {
-    /*display: flex;*/
+    /* display: flex; */
     /* flex-wrap: wrap; */
     max-width: 1200px;
     overflow: hidden;
+    width: 100%;
 }
 
 .petblogs.block img {

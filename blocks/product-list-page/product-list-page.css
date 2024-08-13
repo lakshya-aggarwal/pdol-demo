@@ -100,31 +100,37 @@ main .product-list-page-container > .fragment-wrapper .form-container{
 main .product-list-page-container > .fragment-wrapper > .section{
   padding-top: 0;
 }
-main .product-list-page-container > .fragment-wrapper{
+/* main .product-list-page-container > .fragment-wrapper{
   height: 300px;
-}
-main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-image{
+} */
+/* main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-image{
   height: 300px;
-}
+} */
 .form-wrapper .form .form-block-wrapper > .form-image img{
   max-width: 100%;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 100%);
 }
-main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info{
-  width:80%;
-  padding-left: 200px;
-  background: linear-gradient(to right, lavenderblush, mintcream);
+
+main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info {
+  width: 100%;
+  padding: 0px;
+  background: #f5f5f5;
+  padding: 3rem 2.5rem;
+  width: 60%;
 }
+
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .submit-wrapper button:hover{
   background-color: #3d3d3d;
 }
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .submit-wrapper button{
-  width:200px;
-  height:100%;
-  background-color: #008cba;
-  margin:0;
-  padding:0;
-  border-radius: 7px;
+  display: block;
+  border-radius: .5rem;
+  line-height: 1rem;
+  background-color: #006ec2;
+  border: .125rem solid #006ec2;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 25px;
 }
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper .form .form-block-wrapper > .form-info > form .field-wrapper.email-wrapper input{
   border-radius: 10px;
@@ -146,12 +152,12 @@ main{
 }
 
 main .product-list-page-container > .fragment-wrapper .form-container .form-wrapper{
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   right:0;
   left:0;
   margin-left: 0;
-  margin-right: 0;
+  margin-right: 0; */
 }
 
 label.ds-sdk-labelled-input__label {
@@ -202,3 +208,30 @@ h2#best-sellers {
 .ds-sdk-product-list__grid.mt-md.grid.grid-cols-1.gap-y-8.gap-x-2xl.sm\:grid-cols-2.md\:grid-cols-3.xl\:gap-x-8 {
   grid-template-columns: repeat(3, minmax(0px, 1fr)) !important;
 }
+
+
+
+/*all the media queries*/
+@media (width<=1024px){
+
+  main .section.top-divider .default-content-wrapper {
+    padding-right: 0px;
+  }
+
+  .ds-sdk-product-list__grid.mt-md.grid.grid-cols-1.gap-y-8.gap-x-2xl.sm\:grid-cols-2.md\:grid-cols-3.xl\:gap-x-8 {
+    grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
+    column-gap: 20px;
+}
+
+.product-list-page .ds-sdk-filter-button-desktop button, .product-list-page .ds-sdk-sort-dropdown button {
+  padding: 10px 10px;
+  max-width: 160px;
+}
+
+.form-wrapper {
+  position: relative;
+  left: -20px;
+}
+}
+
+

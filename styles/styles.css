@@ -870,6 +870,11 @@ h2#latest-blogs+p.button-container a {
     margin-top: 2rem;
 }
 
+main .section.top-divider {
+  padding: 20px 0 0 0;
+  margin-top: -50px;
+}
+
 /* .cards > ul > li:has(img) {
   width: 50%;
 } */
