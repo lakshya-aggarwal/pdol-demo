@@ -29,8 +29,6 @@ export async function loadFragment() {
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      body: graphql,
-      mode: 'no-cors',
     };
 
     const final_result= await fetch(AEM_HOST + queryURL, requestOptions)
