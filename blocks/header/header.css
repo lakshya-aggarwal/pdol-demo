@@ -412,11 +412,20 @@ nav#nav .section .default-content-wrapper p {
   text-transform: none;
   font-weight: normal;
   letter-spacing: 0;
-  padding: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .cart-empty-cart__icon svg {
   width: 40px !important;
   height: 40px !important;
   margin: 0 auto;
 } 
+
+.dropin-button-icon {
+  height: 24px;
+  fill: #bababa;
+}

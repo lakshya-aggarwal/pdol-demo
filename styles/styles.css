@@ -598,8 +598,8 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 
 .accordion details summary > div {
   font-weight: bold;
+  letter-spacing: normal;
 }
-
 .accordion details .accordion-item-body {
   padding: 0 0 2rem;
 }
@@ -896,4 +896,66 @@ a.button:hover {
   border: 0;
   background: #00477e;
   border: .125rem solid  #00477e;
+}
+
+
+h1.pdp-product__title {
+  padding: 0;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2e4060;
+    font-size: 26px;
+    line-height: 2.25rem;
+    text-transform: none;
+    float: none;
+    font-weight: bold;
+    letter-spacing: 0;
+}
+
+span.dropin-price.dropin-price--default.dropin-price--small.dropin-price--bold {
+  color: #8b32c2;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 0;
+
+}
+
+
+button.dropin-iconButton.dropin-iconButton--medium.dropin-iconButton--secondary {
+  background: #fff;
+  border: 1px solid #bababa;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pdp-product__description ul l, .pdp-product__description p, .accordion details .accordion-item-body ul li, .accordion details .accordion-item-body p {
+  color: #4d4d4d;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+h5#inspired-by-your-browsing {
+  color: #4d4d4d;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.dropin-incrementer__decrease-button, .dropin-incrementer__increase-button {
+  align-items: center;
+  background-color: var(--color-neutral-50);
+  border-radius: var(--shape-border-radius-3);
+  border: none;
+  display: grid;
+  height: var(--spacing-medium);
+  width: var(--spacing-medium);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+button.dropin-button.dropin-button--medium.dropin-button--primary.dropin-button--with-icon svg {
+  fill: none;
 }
