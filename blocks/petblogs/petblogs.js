@@ -27,8 +27,9 @@ export async function loadFragment() {
       variables: {},
     });
     const requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: myHeaders,
+      body: graphql,
     };
 
     const final_result= await fetch(AEM_HOST + queryURL, requestOptions)
@@ -38,20 +39,23 @@ export async function loadFragment() {
       })
       .catch((error) => console.error(error));
     // testing code
+    console.log(final_result);
     class content {
-      constructor(image, title, text) {
+      constructor(image, title, text,slug) {
         this.image = image;
         this.title = title;
         this.text = text;
+        this.slug = slug;
       }
     }
 
     const content_array = [];
     final_result.forEach((item) => {
       const temp_content=new content;
-      temp_content.title = item.slug;
-      temp_content.text = item.title;
-      temp_content.image ='/media_16b2a614aaade492de19e4353c68bdff7353bd6c8.png?width=750&format=png&optimize=medium';
+      temp_content.title = item.title;
+      temp_content.slug = item.slug;
+      temp_content.text = item.description.plaintext;
+      temp_content.image =`https://publish-p123152-e1381861.adobeaemcloud.com${item.imagepath._path}`;
       content_array.push(temp_content);
     })
     return content_array;
@@ -72,7 +76,7 @@ export default async function decorate(block) {
             </div><div data-valign="middle" class="cards-card-body">
               <p><strong>${item.title}</strong></p>
               <p>${item.text}</p>
-              <p class="button-container"><a href="/blogs/petblogsdetail?slug=${item.title}" title="Read Blog" class="button">Read Blog</a></p>
+              <p class="button-container"><a href="/blogs/petblogsdetail?slug=${item.slug}" title="Read Blog" class="button">Read Blog</a></p>
             </div></li>`);
       const ul_element = document.querySelector('main .section.petblogs-container .petblogs-wrapper .petblogs ul');
       ul_element.appendChild(list_element);
