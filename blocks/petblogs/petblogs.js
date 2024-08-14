@@ -27,9 +27,9 @@ export async function loadFragment() {
       variables: {},
     });
     const requestOptions = {
-      method: 'POST',
+      method: 'GET',
       headers: myHeaders,
-      body: graphql,
+      // body: graphql,
     };
 
     const final_result= await fetch(AEM_HOST + queryURL, requestOptions)
