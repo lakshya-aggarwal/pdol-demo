@@ -27,7 +27,7 @@ export async function loadFragment() {
       variables: {},
     });
     const requestOptions = {
-      method: 'POST',
+      method: 'GET',
       headers: myHeaders,
       body: graphql,
       mode: 'no-cors',
