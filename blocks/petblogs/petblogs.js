@@ -51,12 +51,14 @@ export async function loadFragment() {
 
     const content_array = [];
     final_result.forEach((item) => {
-      const temp_content=new content;
-      temp_content.title = item.title;
-      temp_content.slug = item.slug;
-      temp_content.text = item.description.plaintext;
-      temp_content.image =`https://publish-p123152-e1381861.adobeaemcloud.com${item.imagepath._path}`;
-      content_array.push(temp_content);
+      if(item.imagepath!== null) {
+        const temp_content = new content;
+        temp_content.title = item.title;
+        temp_content.slug = item.slug;
+        temp_content.text = item.description.plaintext;
+        temp_content.image = `https://publish-p123152-e1381861.adobeaemcloud.com${item.imagepath._path}`;
+        content_array.push(temp_content);
+      }
     })
     return content_array;
   }
