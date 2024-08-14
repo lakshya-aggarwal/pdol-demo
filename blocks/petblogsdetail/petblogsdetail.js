@@ -30,9 +30,10 @@ async function loadFragment() {
       method: 'POST',
       headers: myHeaders,
       body: graphql,
+      mode: 'no-cors',
     };
 
-    const final_result =await fetch(AEM_HOST + queryURL, requestOptions)
+    const final_result = await fetch(AEM_HOST + queryURL, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
@@ -50,7 +51,7 @@ export default async function decorate(block) {
     const fragmentSection = document.querySelector('.petblogsdetail.block');
     console.log(fragmentSection);
     if (fragmentSection) {
-     fragmentSection.innerHTML=fragment;
+      fragmentSection.innerHTML = fragment;
     }
   }
 }
