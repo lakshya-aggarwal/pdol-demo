@@ -15,10 +15,10 @@ import {
 async function loadFragment() {
   {
     /* Hardcoded endpoint */
-    const AEM_HOST = 'https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json';
-    const queryURL = '/pdol-site/blogs-by-slug';
     const currentUrl = new URL(window.location.href);
     const queryParams = new URLSearchParams(currentUrl.search);
+    const AEM_HOST = 'https://publish-p123152-e1381861.adobeaemcloud.com/graphql/execute.json';
+    const queryURL = `/pdol-site/blogs-by-slug;slug=${queryParams.get('slug')}`;
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
@@ -27,9 +27,9 @@ async function loadFragment() {
       variables: { slug: queryParams.get('slug') },
     });
     const requestOptions = {
-      method: 'POST',
+      method: 'GET',
       headers: myHeaders,
-      body: graphql,
+      // body: graphql,
     };
 
     const final_result = await fetch(AEM_HOST + queryURL, requestOptions)
