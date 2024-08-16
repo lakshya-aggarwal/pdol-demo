@@ -1,0 +1,24 @@
+main .section.category-listing-container{
+    display:flex;
+}
+main :first-child img{
+    width: 156em;
+}
+.section.category-listing-container .category-listing-wrapper{
+    flex:1;
+    width:50%;
+    margin:0;
+    padding-left:13em;
+    margin-top: 3em;
+    font: var(--type-headline-2-default-font);
+    color: #808080;
+}
+.section .amblog-list{
+    color: #808080;
+}
+.section.category-listing-container .petblogsdetail-wrapper{
+    padding-right: 5em;
+    margin-left: 2em;
+}
+
+
