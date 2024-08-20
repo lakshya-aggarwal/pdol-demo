@@ -267,12 +267,11 @@ header .nav-search-panel input {
   width: 100%;
   height:100%;
   border: 0;
-  padding: 0.5em 0.2em 0.2em 0.4em;
+  padding: 0.5em;
   box-sizing: border-box;
   font: var(--type-headline-2-default-font);
   font-size: medium;
   font-weight: normal;
-  letter-spacing: var(--type-headline-2-default-letter-spacing);
   appearance: none;
   border-radius: 0.2em;
   color: #808080;
@@ -363,6 +362,16 @@ nav#nav p, nav#nav a {
  nav#nav .section:nth-child(5) {
   display: none;
 }
+
+header nav .nav-tools .search-wrapper {
+  flex: 1 1 10vw;
+  width: 100%;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  max-width: 300px;
+}
 }
 
 
@@ -429,11 +438,12 @@ nav#nav .section .default-content-wrapper p {
 
 .minicart-panel.nav-panel.nav-panel--show {
   background: #f9f9f9;
-  min-width: 300px;
+  min-width: 360px;
   top: 20px;
   position: relative;
   border-radius: 10px;
   padding: 10px;
+  box-shadow: var(--shape-shadow-2);
 }
 
 
@@ -514,4 +524,21 @@ span.dropin-cart-item__price__quantity, .cart-mini-cart__footer__estimated-total
 
 .cart-mini-cart .cart-mini-cart__footer__ctas a, a.dropin-button.dropin-button--medium.dropin-button--primary:hover {
   padding: 20px;
+}
+
+
+
+
+@media (width <= 1024px) {
+header nav .nav-tools .minicart-wrapper {
+ width: auto !important;
+}
+header nav .nav-tools {
+  gap: 0;
+}
+
+header nav .nav-tools .search-wrapper {
+  padding: 0;
+  margin: 0;
+}
 }

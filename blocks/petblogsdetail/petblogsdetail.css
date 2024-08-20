@@ -34,3 +34,98 @@ main :first-child img{
 }
 
 
+
+
+.section.category-listing-container .category-listing-wrapper {
+    max-width: 350px;
+}
+
+.section.category-listing-container .category-listing-wrapper {
+    max-width: 350px;
+}
+
+.section.category-listing-container .category-listing-wrapper h3 {
+    color: #4d4d4d;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.petblogsdetail.block p, .petblogsdetail.block {
+    color: #4d4d4d;
+}
+
+.petblogsdetail.block h2 {
+    font-size: 26px;
+    font-weight:bold;
+}
+
+.petblogsdetail.block h3 {
+    font-size: 22px;
+    font-weight:bold;
+
+}
+
+
+.petblogsdetail-wrapper {
+    max-width: 760px !important;
+}
+
+span.amblog-date {
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.amblog-content figure {
+    padding: 0;
+    margin: 0;
+}
+
+.section.category-listing-container.petblogsdetail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section.category-listing-container .category-listing-wrapper {
+    padding: 0 !important;
+}
+
+ul.amblog-categories li {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+a.amblog-ref {
+    display: inline-block;
+    margin: 0 4px;
+    text-decoration: underline;
+}
+
+
+
+
+
+@media (width <= 1024px) {
+.section.category-listing-container .category-listing-wrapper {
+    max-width: 350px;
+    max-width: none;
+    width: 100%;
+    order: 2;
+}
+
+.petblogsdetail-wrapper {
+    max-width: none;
+    width: 100%;
+}
+
+main .section.category-listing-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.section.category-listing-container .petblogsdetail-wrapper {
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+}
+}
