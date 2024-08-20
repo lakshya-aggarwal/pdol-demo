@@ -487,3 +487,31 @@ header nav .nav-tools button.nav-cart-button {
   span.dropin-cart-item__title.dropin-cart-item__title--edit {
     display: none;
 }
+
+.cart-mini-cart__products span.dropin-price.dropin-price--default.dropin-price--small.dropin-price--bold {
+  display: none;
+}
+
+ul.dropin-cart-item__configurations {
+  margin-top: 0;
+}
+
+.dropin-cart-item__image:is(img), .dropin-cart-item__image img {
+  width: 100%;
+  height: auto;
+  min-width: 60px;
+}
+
+.dropin-cart-item__remove {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+}
+
+span.dropin-cart-item__price__quantity, .cart-mini-cart__footer__estimated-total {
+  font-weight: normal;
+}
+
+.cart-mini-cart .cart-mini-cart__footer__ctas a, a.dropin-button.dropin-button--medium.dropin-button--primary:hover {
+  padding: 20px;
+}
