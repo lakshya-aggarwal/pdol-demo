@@ -36,10 +36,8 @@ header .header-nav-wrapper .nav-brand {
   margin-right: 24px;
 }
 
-header .header-nav-wrapper .section.nav-brand .default-content-wrapper {
-  /* display: flex;
-  justify-content: flex-end;
-  padding-right: 1vw; */
+header .header-nav-wrapper .section.nav-brand .default-content-wrapper picture img:hover {
+  cursor: pointer;
 }
 header nav .nav-tools {
   box-sizing: border-box; /* Include padding in width/height calculations */

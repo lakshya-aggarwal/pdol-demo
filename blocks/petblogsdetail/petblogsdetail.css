@@ -1,0 +1,36 @@
+main .section.category-listing-container{
+    display:flex;
+}
+main :first-child img{
+    width: 156em;
+}
+.section.category-listing-container .category-listing-wrapper{
+    flex:1;
+    width:50%;
+    margin:0;
+    padding-left:7em;
+    margin-top: 0.5em;
+    font: var(--type-headline-2-default-font);
+}
+.section.category-listing-container .category-listing-wrapper h3{
+    color: #808080;
+    font-weight: normal;
+}
+.section .amblog-list .amblog-categories .amblog-category .amblog-link{
+    color: #808080;
+    font-weight: 600;
+
+}
+
+.section .amblog-list .amblog-categories .amblog-category .amblog-categories .amblog-category .amblog-link{
+    font-weight: 400;
+}
+.section .amblog-list ul{
+    padding-left:1rem;
+}
+.section.category-listing-container .petblogsdetail-wrapper{
+    padding-right: 5em;
+    margin-left: 2em;
+}
+
+

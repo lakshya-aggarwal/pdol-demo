@@ -27,34 +27,39 @@ export async function loadFragment() {
       variables: {},
     });
     const requestOptions = {
-      method: 'POST',
+      method: 'GET',
       headers: myHeaders,
-      body: graphql,
+      // body: graphql,
     };
 
-    fetch(AEM_HOST + queryURL, requestOptions)
+    const final_result= await fetch(AEM_HOST + queryURL, requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        return (JSON.parse(result)).data.petBlogsList.items;
+      })
       .catch((error) => console.error(error));
-
     // testing code
+    console.log(final_result);
     class content {
-      constructor(image, title, text) {
+      constructor(image, title, text,slug) {
         this.image = image;
         this.title = title;
         this.text = text;
+        this.slug = slug;
       }
     }
 
     const content_array = [];
-    content_array.push(new content('/media_16b2a614aaade492de19e4353c68bdff7353bd6c8.png?width=750&format=png&optimize=medium', 'Is It Safe to Buy A Pet Prescription Online?', 'Online shopping makes getting the things you need easier, no matter where you are. But what about your pet\'s\n'
-            + '        medicine? Find out how to buy your pet\'s prescription online safely here...'));
-    content_array.push(new content('/media_166b0f10136e7ab0eaf653551a44109137571f930.png?width=750&amp;format=webply&amp;optimize=medium', 'The Complete Guide to Getting Rid of Fleas', 'Stop flea infestations in their tracks. With our handy guide to getting rid of fleas, you can ensure a\n'
-            + '        flea-free future for your pet and find the best way to stop fleas from returning.'));
-    content_array.push(new content('/media_1f3ad3ad9fba052ad5e3974c8472fac0036ce9363.png?width=750&amp;format=webply&amp;optimize=medium', 'How Often Should You Worm Your Pet?', 'Did you know some pets need worming more frequently than others? Our blog can help you find out if your pet is\n'
-            + '        getting the parasite protection they need.'));
-    content_array.push(new content('/media_1f37accc8be94256f63efa9ee0b3b3fda91bdc43e.png?width=750&amp;format=webply&amp;optimize=medium', 'How Do Flea Treatments Work?', 'o you know what you\'re looking for? Find out which flea treatment is best for your pet as we look at what\n'
-            + '        active ingredients to look out for and what they do.'));
+    final_result.forEach((item) => {
+      if(item.imagepath!== null) {
+        const temp_content = new content;
+        temp_content.title = item.title;
+        temp_content.slug = item.slug;
+        temp_content.text = item.description.plaintext;
+        temp_content.image = `https://publish-p123152-e1381861.adobeaemcloud.com${item.imagepath._path}`;
+        content_array.push(temp_content);
+      }
+    })
     return content_array;
   }
 }
@@ -73,7 +78,7 @@ export default async function decorate(block) {
             </div><div data-valign="middle" class="cards-card-body">
               <p><strong>${item.title}</strong></p>
               <p>${item.text}</p>
-              <p class="button-container"><a href="/equipment" title="Read Blog" class="button">Read Blog</a></p>
+              <p class="button-container"><a href="/blogs/petblogsdetail?slug=${item.slug}" title="Read Blog" class="button">Read Blog</a></p>
             </div></li>`);
       const ul_element = document.querySelector('main .section.petblogs-container .petblogs-wrapper .petblogs ul');
       ul_element.appendChild(list_element);

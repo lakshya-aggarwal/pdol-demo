@@ -58,7 +58,11 @@
 
 
 }
-
+.petblogs.block .button-container a:hover{
+    background-color: white;
+    border: 0;
+    color: #b59000;
+}
 @media (width <= 1024px) {
     .petblogs-wrapper .petblogs.block ul {
         flex-direction: column;
