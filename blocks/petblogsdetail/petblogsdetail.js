@@ -93,6 +93,8 @@ async function loadFragment() {
 export default async function decorate(block) {
   const fragment = await loadFragment();
   const categoryList= await getCategoryListData();
+  const searchParam= new URL(window.location.href);
+  const queryParam = new URLSearchParams(searchParam.search);
   console.log(categoryList);
   if (fragment) {
     const fragmentSection = document.querySelector('.petblogsdetail.block');
@@ -105,32 +107,32 @@ export default async function decorate(block) {
                 <ul class="amblog-categories -level1">
                     
                     <li class="amblog-category  amblog-category-1">
-            <a class="amblog-link" title="Dog" href="https://www.petdrugsonline.co.uk/pet-advice/category/dog">
+            <a class="amblog-link" title="Dog" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Dog                <span class="amblog-category-count">(88)</span>
             </a>
 
                             <ul class="amblog-categories -level2">
                     
                     <li class="amblog-category  amblog-category-16">
-            <a class="amblog-link" title="Dog Nutrition" href="https://www.petdrugsonline.co.uk/pet-advice/category/dog-nutrition">
+            <a class="amblog-link" title="Dog Nutrition" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Dog Nutrition                <span class="amblog-category-count">(12)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-22">
-            <a class="amblog-link" title="Dog Health" href="https://www.petdrugsonline.co.uk/pet-advice/category/dog-health">
+            <a class="amblog-link" title="Dog Health" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Dog Health                <span class="amblog-category-count">(28)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-25">
-            <a class="amblog-link" title="Dog Behaviour " href="https://www.petdrugsonline.co.uk/pet-advice/category/dog-behaviour ">
+            <a class="amblog-link" title="Dog Behaviour " href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')} ">
                 Dog Behaviour                 <span class="amblog-category-count">(10)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-28">
-            <a class="amblog-link" title="Dog Well Being" href="https://www.petdrugsonline.co.uk/pet-advice/category/dog-well-being">
+            <a class="amblog-link" title="Dog Well Being" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Dog Well Being                <span class="amblog-category-count">(35)</span>
             </a>
 
@@ -138,32 +140,32 @@ export default async function decorate(block) {
                     </ul>
                     </li>
                     <li class="amblog-category  amblog-category-4">
-            <a class="amblog-link" title="Cat" href="https://www.petdrugsonline.co.uk/pet-advice/category/cat">
+            <a class="amblog-link" title="Cat" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Cat                <span class="amblog-category-count">(59)</span>
             </a>
 
                             <ul class="amblog-categories -level2">
                     
                     <li class="amblog-category  amblog-category-19">
-            <a class="amblog-link" title="Cat Nutrition" href="https://www.petdrugsonline.co.uk/pet-advice/category/cat-nutrition">
+            <a class="amblog-link" title="Cat Nutrition" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Cat Nutrition                <span class="amblog-category-count">(4)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-31">
-            <a class="amblog-link" title="Cat Health" href="https://www.petdrugsonline.co.uk/pet-advice/category/cat-health">
+            <a class="amblog-link" title="Cat Health" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Cat Health                <span class="amblog-category-count">(22)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-34">
-            <a class="amblog-link" title="Cat Well Being" href="https://www.petdrugsonline.co.uk/pet-advice/category/cat-well-being">
+            <a class="amblog-link" title="Cat Well Being" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Cat Well Being                <span class="amblog-category-count">(22)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-37">
-            <a class="amblog-link" title="Cat Behaviour" href="https://www.petdrugsonline.co.uk/pet-advice/category/cat-behaviour">
+            <a class="amblog-link" title="Cat Behaviour" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Cat Behaviour                <span class="amblog-category-count">(6)</span>
             </a>
 
@@ -171,19 +173,19 @@ export default async function decorate(block) {
                     </ul>
                     </li>
                     <li class="amblog-category  amblog-category-7">
-            <a class="amblog-link" title="Horse" href="https://www.petdrugsonline.co.uk/pet-advice/category/horse">
+            <a class="amblog-link" title="Horse" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Horse                <span class="amblog-category-count">(12)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-13">
-            <a class="amblog-link" title="Bird" href="https://www.petdrugsonline.co.uk/pet-advice/category/bird">
+            <a class="amblog-link" title="Bird" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Bird                <span class="amblog-category-count">(5)</span>
             </a>
 
                     </li>
                     <li class="amblog-category  amblog-category-10">
-            <a class="amblog-link" title="Small Animal" href="https://www.petdrugsonline.co.uk/pet-advice/category/small-animal">
+            <a class="amblog-link" title="Small Animal" href="https://main--pdol-demo--lakshya-aggarwal.hlx.live/blogs/petblogsdetail?slug=${queryParam.get('slug')}">
                 Small Animal                <span class="amblog-category-count">(11)</span>
             </a>
 
