@@ -24,7 +24,7 @@ export default async function decorate(block) {
     if(widgetButton !== null) {
       widgetButton.addEventListener("click", ()=>{
      let toDisableDiv = document.querySelector(".justify-start");
-     if(toDisableDiv) {
+     if(toDisableDiv !== null) {
        toDisableDiv.remove();
      }
 
