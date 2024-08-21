@@ -313,9 +313,9 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.dataset.category = config.category;
-
   return new Promise((resolve) => {
     const app = html`<${ProductListPage} ...${config} block=${block} resolve=${resolve} />`;
     render(app, block);
   });
+
 }

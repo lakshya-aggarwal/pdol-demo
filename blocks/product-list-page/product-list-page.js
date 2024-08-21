@@ -4,9 +4,42 @@ import { getConfigValue } from '../../scripts/configs.js';
 export default async function decorate(block) {
   const { urlpath, category, type } = readBlockConfig(block);
   block.textContent = '';
-
   const widgetProd = '/scripts/widgets/search.js';
-  await loadScript(widgetProd);
+  await loadScript(widgetProd).then(()=>{
+    console.log(document.querySelector('.ds-widgets'));
+  });
+
+  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+  var widgetObserver = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+    var widgetButton = document.querySelector(".ds-sdk-filter-button-desktop");
+
+    // ...
+  });
+
+  let observer = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+    let widgetButton = document.querySelector(".ds-sdk-filter-button-desktop button");
+    if(widgetButton !== null) {
+      widgetButton.addEventListener("click", ()=>{
+     let toDisableDiv = document.querySelector(".justify-start");
+     if(toDisableDiv) {
+       toDisableDiv.remove();
+     }
+
+      })
+    }
+
+  });
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+  observer.observe(document, {
+    subtree: true,
+    attributes: true
+    //...
+  });
 
   const storeDetails = {
     environmentId: await getConfigValue('commerce-environment-id'),
@@ -62,4 +95,5 @@ export default async function decorate(block) {
   });
 
   window.LiveSearchPLP({ storeDetails, root: block });
+
 }

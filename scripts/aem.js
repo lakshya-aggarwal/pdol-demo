@@ -194,8 +194,9 @@ async function loadScript(src, attrs) {
           script.setAttribute(attr, attrs[attr]);
         }
       }
-      script.onload = resolve;
+      script.onload = resolve
       script.onerror = reject;
+      console.log(script);
       document.head.append(script);
     } else {
       resolve();
