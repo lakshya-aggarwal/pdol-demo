@@ -541,4 +541,29 @@ header nav .nav-tools .search-wrapper {
   padding: 0;
   margin: 0;
 }
+
+.minicart-wrapper {
+  top: -10px;
+  position: relative;
+}
+
+header .nav-search-panel input {
+  max-width: 250px;
+}
+
+header nav .nav-tools .minicart-wrapper > button.button.nav-cart-button {
+  padding-top: 0;
+  margin: 0;
+  margin-top: 18px;
+}
+
+header nav .nav-tools .search-wrapper {
+  flex: 1 1 250px;
+  width: 250px;
+  padding-right: 0;
+  padding-left: 0;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  max-width: 250px;
+}
 }
